@@ -94,7 +94,7 @@ export default {
         this.Pause_play_video()
         this.showbtn1 = true
         this.showbtn2 = true
-      }, 5000)
+      }, 5)
     },
     addAnswer (value) {
       this.buttonAnswer.push(value)
