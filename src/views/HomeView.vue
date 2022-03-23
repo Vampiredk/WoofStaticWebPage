@@ -1,18 +1,29 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <head>
+     <title> Vue 3 Basics</title>
+  </head>
+  <body>
+    <div id="app">
+      <img alt="Woof Logo" src="../assets/Images/Woof_logo.png">
+      <br>
+      {{ buttonAnswer }}
+      <div class="a">
+        <h1 style="color:#FFFFFF">
+          Vil i lære hinanden bedre at kende i klassen?
+        </h1>
+      <router-link to="/about">
+        <button class="button" >Find Klassens Hund</button>
+      </router-link>
+      </div>
+    </div>
+  </body>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+// cd CLI --- CD woof ---- npm run serve
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
-  }
+  props: []
+
 }
 </script>
