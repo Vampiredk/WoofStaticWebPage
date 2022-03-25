@@ -34,14 +34,14 @@
                 v-model="email"
                 name="email"
                 placeholder="Your Email"
-                >
+            >
             <label>Message</label>
-            <textarea
+            <!---<textarea
                 name="message"
                 v-model="message"
                 cols="30" rows="5"
                 placeholder="Message">
-            </textarea>
+            </textarea>--->
             <input type="submit" value="Send">
             </form>
         </div>
@@ -55,11 +55,11 @@ import emailjs from 'emailjs-com'
 export default {
   name: 'MyCharles',
   props: ['buttonAnswer', 'findDog'],
-    data () {
+  data () {
     return {
       name: '',
       email: '',
-      message: ''
+      message: 'Charles'
     }
   },
   methods: {
