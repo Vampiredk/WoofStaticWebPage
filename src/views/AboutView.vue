@@ -8,7 +8,7 @@
         <source src="../assets/sound/Sample-wav-file.wav" type="audio/wav">
       </audio>
       <video v-if="video1" autoplay muted loop id="myVideo">
-        <source src="../assets/video/video3.mp4" type="video/mp4">
+        <source src="../assets/video/AboutVideo1.mp4" type="video/mp4">
       </video>
     </div>
     <div class="content">
@@ -94,7 +94,7 @@ export default {
         this.Pause_play_video()
         this.showbtn1 = true
         this.showbtn2 = true
-      }, 5000)
+      }, 5)
     },
     addAnswer (value) {
       this.buttonAnswer.push(value)
