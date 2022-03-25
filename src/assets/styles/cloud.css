@@ -1,12 +1,45 @@
 #combinedSh {
     position: absolute;
-    left: 272.76px;
-    top: 294.76px;
-    width: 894.48px;
-    height: 414px;
-    background: #ffffff;
+    top: 25%;
+    left: 32%;
+    width: 600px;
+    height: 300px;
+
     background-blend-mode: normal;
-    box-shadow: 0px 4px 14px 10px rgba(0,0,0,0.1),
-                inset 0px 0px 30px rgba(29,30,75,0.2);
   }
+
+#cloudtext {
+    text-align: center;
+    position: relative;
+    color: #313745;
+    top: 100px;
+    font-family: Nunito;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+#cloud {
+    position: absolute;
+    top: 25%;
+    width: 98%;
+    height: 400;
+}
+.cloudbtn {
+    background-color: black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    width: 200px;
+    font-family: Nunito;
+    margin: 4px 2px;
+    opacity: 100%;
+    cursor: pointer;
+    border-radius: 12px;
+    position: relative;
+    left: 43%;
+    top: 100px;
+}
   

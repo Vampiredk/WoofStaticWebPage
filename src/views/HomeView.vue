@@ -3,13 +3,17 @@
      <title> Vue 3 Basics</title>
   </head>
   <body>
-    <div class="centeralign">
-      <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
-    </div>
+    <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
     <br>
-    <img id="combinedSh" alt="Cloud" src="../assets/Images/Cloud.png">
-    <router-link to="/about">
-    </router-link>
+    <div id="cloud">
+      <img id="combinedSh" alt="Cloud" src="../assets/Images/Cloud.png">
+      <p id="cloudtext">Vil i lære hinanden <br>
+      bedre at kende i <br>
+      jeres klassen?</p>
+      <router-link to="/about">
+        <button class="cloudbtn">Begynd at lede :)</button>
+      </router-link>
+    </div>
     <div id="centercontainer">
       <div id="rectangle">
       </div>
