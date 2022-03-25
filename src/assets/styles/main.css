@@ -2,6 +2,16 @@ div.a {
     text-align: center;
 }
 
+div.first {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1440px;
+    height: 1024px;
+    background: #d36872, linear-gradient(156deg, rgba(211,104,114,0.5) 0%, rgba(225,183,85,0.5) 100%);
+    background-blend-mode: normal;
+}
+
 div.rightalign {
     text-align: right;
 }
@@ -49,3 +59,13 @@ body {
     text-align: center;
 }
 
+body {
+    left: 0px;
+    top: 0px;
+    width: 1440px;
+    height: 1024px;
+    background: #d36872;
+    -background: #d36872, linear-gradient(156deg, rgba(211,104,114,0.5) 0%, rgba(225,183,85,0.5) 100%);
+    background-blend-mode: normal;
+}
+  

@@ -37,7 +37,8 @@ export default {
     return {
       name: '',
       email: '',
-      message: ''
+      message: 'supper',
+      messagebox: false
     }
   },
   methods: {
@@ -45,8 +46,7 @@ export default {
       try {
         emailjs.sendForm('service_sfmumua', 'template_vd3nvb8', e.target, '31drUeLFvBRJZ1O7E', {
           name: this.name,
-          email: this.email,
-          message: this.message
+          email: this.email
         })
       } catch (error) {
         console.log({ error })
@@ -54,7 +54,6 @@ export default {
       // Reset form field
       this.name = ''
       this.email = ''
-      this.message = ''
     }
   }
 }

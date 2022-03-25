@@ -1,0 +1,72 @@
+#group {
+    position: absolute;
+    left: 1292.2px;
+    top: 44.9px;
+    width: 140px;
+    height: 88.26px;
+  }
+  
+  #oval {
+    position: absolute;
+    left: 43.2px;
+    top: 0px;
+    width: 52px;
+    height: 52px;
+    background: #ffffff;
+    background-blend-mode: normal;
+  }
+  
+  #husklyd {
+    position: absolute;
+    left: 0px;
+    top: 49.26px;
+    width: 140px;
+    height: 39px;
+    color: #ffed00;
+    font-family: AddenRegular;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 39px;
+    text-align: center;
+  }
+  
+  #speaker03 {
+    position: absolute;
+    left: 59.9px;
+    top: 15.57px;
+    width: 20.27px;
+    height: 21.77px;
+    background: #313845;
+    background-blend-mode: normal;
+  }
+  
+  #shape {
+    position: absolute;
+    left: 0px;
+    top: 0.9px;
+    width: 9.6px;
+    height: 18.91px;
+    background: #283238;
+    background-blend-mode: normal;
+  }
+  
+  #path {
+    position: absolute;
+    left: 11.74px;
+    top: 0px;
+    width: 8.54px;
+    height: 21.77px;
+    background: #7d909b;
+    background-blend-mode: normal;
+  }
+  
+  #path {
+    position: absolute;
+    left: 11.74px;
+    top: 4.48px;
+    width: 4.27px;
+    height: 12.81px;
+    background: #7d909b;
+    background-blend-mode: normal;
+  }
+  

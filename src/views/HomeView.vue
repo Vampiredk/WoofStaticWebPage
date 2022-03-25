@@ -4,15 +4,17 @@
   </head>
   <body>
     <div id="app">
-      <img alt="Woof Logo" src="../assets/Images/Woof_logo.png">
+      <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
+      <!--<h1 id="logoblacop"></h1>-->
       <br>
       {{ buttonAnswer }}
       <div class="a">
-        <h1 style="color:#FFFFFF">
-          Vil i lære hinanden bedre at kende i klassen?
+        <h1 class="vililrerhi">
+          Vil i lærer hinanden bedre at kende i jeres klasse?
         </h1>
       <router-link to="/about">
-        <button class="button" >Find Klassens Hund</button>
+        <!--<button id="oval"></button>
+        <a href="#" class="group"></a>-->
       </router-link>
       </div>
     </div>
