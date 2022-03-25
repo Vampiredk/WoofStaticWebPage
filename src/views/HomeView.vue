@@ -3,19 +3,18 @@
      <title> Vue 3 Basics</title>
   </head>
   <body>
-    <div id="app">
+    <div class="centeralign">
       <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
-      <!--<h1 id="logoblacop"></h1>-->
-      <br>
-      {{ buttonAnswer }}
-      <div class="a">
-        <h1 class="vililrerhi">
-          Vil i lærer hinanden bedre at kende i jeres klasse?
-        </h1>
-      <router-link to="/about">
-        <!--<button id="oval"></button>
-        <a href="#" class="group"></a>-->
-      </router-link>
+    </div>
+    <br>
+    <img id="combinedSh" alt="Cloud" src="../assets/Images/Cloud.png">
+    <router-link to="/about">
+    </router-link>
+    <div id="centercontainer">
+      <div id="rectangle">
+      </div>
+      <div class="center">
+        <button id="center" class="button" >Gratis Sign up</button> <button class="button" >Vil du vide mere om Woof?</button> <button class="button" >Kontakt: Woof@wooftech.dk +45 27 14 04 00</button>
       </div>
     </div>
   </body>
