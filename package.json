@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.4.0",
+    "@sendgrid/mail": "^7.6.2",
+    "axios": "^0.26.1",
     "core-js": "^3.8.3",
     "emailjs-com": "^3.2.0",
     "vue": "^3.2.13",

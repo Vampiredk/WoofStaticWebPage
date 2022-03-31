@@ -18,7 +18,7 @@
       <div id="rectangle">
       </div>
       <div class="center">
-        <button id="center" class="button" >Gratis Sign up</button> <button class="button" >Vil du vide mere om Woof?</button> <button class="button" >Kontakt: Woof@wooftech.dk +45 27 14 04 00</button>
+        <button class="button" >Gratis Sign up</button> <button class="button" >Vil du vide mere om Woof?</button> <button class="button" >Kontakt: Woof@wooftech.dk +45 27 14 04 00</button>
       </div>
     </div>
   </body>

@@ -3,41 +3,55 @@
     <title> Vue 3 Basics</title>
   </head>
   <body>
-    <div id="app">
-      <audio autoplay loop>
-        <source src="../assets/sound/Sample-wav-file.wav" type="audio/wav">
+    <div>
+      <audio v-if="ForestM" autoplay loop>
+        <source src="../assets/sound/Forest.wav" type="audio/wav">
       </audio>
-      <video v-if="video1" autoplay muted loop id="myVideo">
-        <source src="../assets/video/AboutVideo1.mp4" type="video/mp4">
+      <audio v-if="BeachM" autoplay loop>
+        <source src="../assets/sound/Forest.wav" type="audio/wav">
+      </audio>
+      <audio v-if="CircusM" autoplay loop>
+        <source src="../assets/sound/Circus.wav" type="audio/wav">
+      </audio>
+      <audio v-if="CityM" autoplay loop>
+        <source src="../assets/sound/City.wav" type="audio/wav">
+      </audio>
+      <audio v-if="NightM" autoplay loop>
+        <source src="../assets/sound/Night.wav" type="audio/wav">
+      </audio>
+      <audio v-if="SpaceM" autoplay loop>
+        <source src="../assets/sound/Space.wav" type="audio/wav">
+      </audio>
+      <audio v-if="UnderwaterM" autoplay loop>
+        <source src="../assets/sound/Underwater.wav" type="audio/wav">
+      </audio>
+      <video v-if="ForestV" autoplay muted loop id="myVideo">
+        <source src="../assets/video/Forest.mp4" type="video/mp4">
+      </video>
+      <video v-if="BeachV" autoplay muted loop id="myVideo">
+        <source src="../assets/video/Beach.mp4" type="video/mp4">
+      </video>
+      <video v-if="CircusV" autoplay muted loop id="myVideo">
+        <source src="../assets/video/Circus.mp4" type="video/mp4">
+      </video>
+      <video v-if="CityV" autoplay muted loop id="myVideo">
+        <source src="../assets/video/City.mp4" type="video/mp4">
+      </video>
+      <video v-if="NightV" autoplay muted loop id="myVideo">
+        <source src="../assets/video/Night.mp4" type="video/mp4">
+      </video>
+      <video v-if="SpaceV" autoplay muted loop id="myVideo">
+        <source src="../assets/video/Space.mp4" type="video/mp4">
+      </video>
+      <video v-if="UnderwaterV" autoplay muted loop id="myVideo">
+        <source src="../assets/video/Underwater.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="content">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <div v-if="answerbtn">
-        <button v-if="showbtn1" class="button" @click="addAnswer(1)">{{ btn1 }}</button>
-        <button v-if="showbtn2" class="button" @click="addAnswer(2)">{{ btn2 }}</button>
-      </div>
+    <div id="cloud" v-if="answerbtn">
+      <img id="videoCloud" alt="Cloud" src="../assets/Images/Cloud.png">
+      <button class="cloudvideobtn" @click="addAnswer(1)">{{ btn1 }}</button>
+      <button class="cloudvideobtn" @click="addAnswer(2)">{{ btn2 }}</button>
+    </div>
       <div v-if="showFindDogbtn">
         <ul v-if="findDog() === 'charles'">
           <router-link to="/Charles">
@@ -54,18 +68,12 @@
             <button class="button" >Find Hund</button>
           </router-link>
         </ul>
-        <ul v-if="findDog() === 'kalle'">
-          <router-link to="/Kalle">
-            <button class="button" >Find Hund</button>
-          </router-link>
-        </ul>
         <ul v-if="findDog() === 'tessa'">
           <router-link to="/Tessa">
           <button class="button" >Find Hund</button>
-        </router-link>
+          </router-link>
         </ul>
       </div>
-    </div>
   </body>
 </template>
 
@@ -77,14 +85,25 @@ export default {
   data: function () {
     return {
       buttonAnswer: [],
-      video1: true,
+      BeachV: false,
+      BeachM: false,
+      CircusV: false,
+      CircusM: false,
+      CityV: false,
+      CityM: false,
+      ForestV: true,
+      ForestM: true,
+      NightV: false,
+      NightM: false,
+      SpaceV: false,
+      SpaceM: false,
+      UnderwaterV: false,
+      UnderwaterM: false,
       showButton: false,
-      showbtn1: false,
-      showbtn2: false,
       showFindDogbtn: false,
-      answerbtn: true,
-      btn1: 'inde',
-      btn2: 'Ude'
+      answerbtn: false,
+      btn1: 'Undervisning',
+      btn2: 'Frikvarter'
     }
   },
   methods: {
@@ -92,9 +111,8 @@ export default {
       setTimeout(() => {
         this.showButton = true
         this.Pause_play_video()
-        this.showbtn1 = true
-        this.showbtn2 = true
-      }, 5)
+        this.answerbtn = true
+      }, 7500)
     },
     addAnswer (value) {
       this.buttonAnswer.push(value)
@@ -103,8 +121,7 @@ export default {
       this.Pause_play_video()
       this.newQuestion()
       this.showButtonAfter5Seconds()
-      this.showbtn1 = false
-      this.showbtn2 = false
+      this.answerbtn = false
     },
     Pause_play_video () {
       var video = document.getElementById('myVideo')
@@ -116,120 +133,304 @@ export default {
     },
     newQuestion () {
       if (this.buttonAnswer.length === 1) {
-        this.btn1 = 'Strand'
-        this.btn2 = 'Bjerg'
-      } else if (this.buttonAnswer.length === 2) {
-        this.btn1 = 'Time'
-        this.btn2 = 'Frikvarter'
-      } else if (this.buttonAnswer.length === 3) {
-        this.btn1 = 'Mange'
-        this.btn2 = 'Få'
-      } else if (this.buttonAnswer.length === 4) {
-        setTimeout(() => {
-          this.answerbtn = false
-          this.showFindDogbtn = true
-        }, 5000)
+        this.ChangeToCity()
+      }
+      if (this.buttonAnswer.length === 2) {
+        this.ChangeToNight()
+      }
+      if (this.buttonAnswer.length === 3) {
+        this.ChangeToSpace()
+      }
+      if (this.buttonAnswer.length === 4) {
+        this.ChangeToUnderwater()
       } else {
-        console.log('nothing changed')
+        console.log('error')
       }
     },
-    findDog () {
+
+    finddog () {
       if (this.buttonAnswer.at(0) === 1) {
-        console.log('1')
+        console.log('Undervisning')
         if (this.buttonAnswer.at(1) === 1) {
-          console.log('1.1.')
+          console.log('Alenearbejde')
           if (this.buttonAnswer.at(2) === 1) {
-            console.log('1.1.1')
-            if (this.buttonAnswer.length > 3) {
-              if (this.buttonAnswer.at(3) === 1) {
-                console.log('1.1.1.1')
-                return 'charles'
-              } else if (this.buttonAnswer.at(3) === 2) {
-                console.log('1.1.1.2')
-                return 'frida'
+            console.log('Ro')
+            if (this.buttonAnswer.at(3) === 1) {
+              console.log('Brætspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // frida
+                return ('frida')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // frida
+                return ('frida')
+              }
+            } else if (this.buttonAnswer.at(3) === 2) {
+              console.log('boldspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Charles
+                return ('charles')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Charles
+                return ('charles')
               }
             }
           } else if (this.buttonAnswer.at(2) === 2) {
-            if (this.buttonAnswer.length > 3) {
-              if (this.buttonAnswer.at(3) === 1) {
-                console.log('1.1.2.1')
-                return 'charles'
-              } else if (this.buttonAnswer.at(3) === 2) {
-                console.log('1.1.2.2')
-                return 'charles'
+            console.log('Energi')
+            if (this.buttonAnswer.at(3) === 1) {
+              console.log('Brætspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // frida
+                return ('frida')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // frida
+                return ('frida')
+              }
+            } else if (this.buttonAnswer.at(3) === 2) {
+              console.log('boldspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Tessa
+                return ('tessa')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Tessa
+                return ('tessa')
               }
             }
           }
         } else if (this.buttonAnswer.at(1) === 2) {
+          console.log('Gruppearbejde')
           if (this.buttonAnswer.at(2) === 1) {
-            if (this.buttonAnswer.length > 3) {
-              if (this.buttonAnswer.at(3) === 1) {
-                console.log('1.2.1.1')
-                return 'charles'
-              } else if (this.buttonAnswer.at(3) === 2) {
-                console.log('1.2.1.2')
-                return 'frida'
+            console.log('Ro')
+            if (this.buttonAnswer.at(3) === 1) {
+              console.log('Brætspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Charles
+                return ('charles')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Charles
+                return ('charles')
+              }
+            } else if (this.buttonAnswer.at(3) === 2) {
+              console.log('boldspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // frida
+                return ('frida')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // frida
+                return ('frida')
               }
             }
           } else if (this.buttonAnswer.at(2) === 2) {
-            if (this.buttonAnswer.length > 3) {
-              if (this.buttonAnswer.at(3) === 1) {
-                console.log('1.2.2.1')
-                return 'charles'
-              } else if (this.buttonAnswer.at(3) === 2) {
-                console.log('1.2.2.2')
-                return 'charles'
+            console.log('Energi')
+            if (this.buttonAnswer.at(3) === 1) {
+              console.log('Brætspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Charles
+                return ('charles')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Charles
+                return ('charles')
+              }
+            } else if (this.buttonAnswer.at(3) === 2) {
+              console.log('boldspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Bandit
+                return ('bandit')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Bandit
+                return ('bandit')
               }
             }
           }
         }
       } else if (this.buttonAnswer.at(0) === 2) {
+        console.log('Frikvarter')
         if (this.buttonAnswer.at(1) === 1) {
+          console.log('Alenearbejde')
           if (this.buttonAnswer.at(2) === 1) {
-            if (this.buttonAnswer.length > 3) {
-              if (this.buttonAnswer.at(3) === 1) {
-                console.log('2.1.1.1')
-                return 'bandit'
-              } else if (this.buttonAnswer.at(3) === 2) {
-                console.log('2.1.1.2')
-                return 'bandit'
+            console.log('Ro')
+            if (this.buttonAnswer.at(3) === 1) {
+              console.log('Brætspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // frida
+                return ('frida')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // frida
+                return ('frida')
+              }
+            } else if (this.buttonAnswer.at(3) === 2) {
+              console.log('boldspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Tessa
+                return ('tessa')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Tessa
+                return ('tessa')
               }
             }
           } else if (this.buttonAnswer.at(2) === 2) {
-            if (this.buttonAnswer.length > 3) {
-              if (this.buttonAnswer.at(3) === 1) {
-                console.log('2.1.2.1')
-                return 'bandit'
-              } else if (this.buttonAnswer.at(3) === 2) {
-                console.log('2.1.2.2')
-                return 'charles'
+            console.log('Energi')
+            if (this.buttonAnswer.at(3) === 1) {
+              console.log('Brætspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Tessa
+                return ('tessa')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Tessa
+                return ('tessa')
+              }
+            } else if (this.buttonAnswer.at(3) === 2) {
+              console.log('boldspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Tessa
+                return ('tessa')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Tessa
+                return ('tessa')
               }
             }
           }
         } else if (this.buttonAnswer.at(1) === 2) {
+          console.log('Gruppearbejde')
           if (this.buttonAnswer.at(2) === 1) {
-            if (this.buttonAnswer.length > 3) {
-              if (this.buttonAnswer.at(3) === 1) {
-                console.log('2.2.1.1')
-                return 'tessa'
-              } else if (this.buttonAnswer.at(3) === 2) {
-                console.log('2.2.1.2')
-                return 'tessa'
+            console.log('Ro')
+            if (this.buttonAnswer.at(3) === 1) {
+              console.log('Brætspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Charles
+                return ('charles')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Charles
+                return ('charles')
+              }
+            } else if (this.buttonAnswer.at(3) === 2) {
+              console.log('boldspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Bandit
+                return ('bandit')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Bandit
+                return ('bandit')
               }
             }
           } else if (this.buttonAnswer.at(2) === 2) {
-            if (this.buttonAnswer.length > 3) {
-              if (this.buttonAnswer.at(3) === 1) {
-                console.log('2.2.2.1')
-                return 'kalle'
-              } else if (this.buttonAnswer.at(3) === 2) {
-                console.log('2.2.2.2')
-                return 'tessa'
+            console.log('Energi')
+            if (this.buttonAnswer.at(3) === 1) {
+              console.log('Brætspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Bandit
+                return ('bandit')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Bandit
+                return ('bandit')
+              }
+            } else if (this.buttonAnswer.at(3) === 2) {
+              console.log('boldspil')
+              if (this.buttonAnswer.at(4) === 1) {
+                console.log('Hver for sig')
+                // Bandit
+                return ('bandit')
+              } else if (this.buttonAnswer.at(4) === 2) {
+                console.log('Sammen')
+                // Bandit
+                return ('bandit')
               }
             }
           }
         }
       }
+    },
+
+    ChangeToCity () {
+      this.btn1 = 'Alenearbejde'
+      this.btn2 = 'Gruppearbejde'
+      this.CityV = true
+      this.CityM = true
+      setTimeout(() => {
+        this.ForestV = false
+      }, 500)
+      this.ForestM = false
+    },
+    ChangeToUnderwater () {
+      this.btn1 = 'Sammen'
+      this.btn2 = 'Hver for sig'
+      this.UnderwaterM = true
+      this.UnderwaterV = true
+      setTimeout(() => {
+        this.SpaceM = false
+      }, 500)
+      this.SpaceV = false
+    },
+    ChangeToSpace () {
+      this.btn1 = 'Brætspil'
+      this.btn2 = 'Boldspil'
+      this.SpaceM = true
+      this.SpaceV = true
+      setTimeout(() => {
+        this.NightM = false
+      }, 500)
+      this.NightV = false
+    },
+    ChangeToNight () {
+      this.btn1 = 'Ro'
+      this.btn2 = 'Energi'
+      this.NightM = true
+      this.NightV = true
+      setTimeout(() => {
+        this.CityM = false
+      }, 500)
+      this.CityV = false
+    },
+    ChangeToCircus () {
+      this.btn1 = 'Brætspil'
+      this.btn2 = 'Boldspil'
+      this.CircusM = true
+      this.CircusV = true
+      setTimeout(() => {
+        this.SpaceM = false
+        this.NightM = false
+      }, 500)
+      this.SpaceV = false
+      this.NightV = false
+    },
+    ChangteToBeach () {
+      this.btn1 = 'Hver for sig'
+      this.btn2 = 'Sammen'
+      this.BeachM = true
+      this.beachV = true
+      setTimeout(() => {
+        this.CircusM = false
+      }, 500)
+      this.CircusV = false
     }
   },
   created: function () {

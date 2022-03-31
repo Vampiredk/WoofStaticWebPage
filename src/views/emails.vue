@@ -1,5 +1,9 @@
 <template>
     <div id="app">
+      <div v-for="post in posts" v-bind:key="post.id">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body }}</p>
+      </div>
         <div class="container">
             <form @submit.prevent="sendEmail">
             <label>Name</label>
@@ -16,13 +20,6 @@
                 name="email"
                 placeholder="Your Email"
                 >
-            <label>Message</label>
-            <textarea
-                name="message"
-                v-model="message"
-                cols="30" rows="5"
-                placeholder="Message">
-            </textarea>
             <input type="submit" value="Send">
             </form>
         </div>
@@ -31,14 +28,23 @@
 
 <script>
 import emailjs from 'emailjs-com'
+import axios from 'axios'
+const url = 'https://woofrestservice20220324090401.azurewebsites.net/api/woof'
+
 export default {
   name: 'MyEmails',
   data () {
     return {
       name: '',
-      email: '',
-      message: 'supper',
-      messagebox: false
+      message: 'test test',
+      messagebox: false,
+      emails: '',
+      skole: '',
+      Aldersgruppe: '',
+      Hund: '',
+      klassensSvar: '',
+      posts: [],
+      addData: { id: 0, emails: 'simonbreit2134 gmail.com', skole: 'Kildegård SKole', Aldersgruppe: 'UdSkoling', Hund: 'Balter', klassensSvar: 'Inde, Bjerg, mange, lektier' }
     }
   },
   methods: {
@@ -46,15 +52,35 @@ export default {
       try {
         emailjs.sendForm('service_sfmumua', 'template_vd3nvb8', e.target, '31drUeLFvBRJZ1O7E', {
           name: this.name,
-          email: this.email
+          email: this.email,
+          message: this.message
         })
       } catch (error) {
         console.log({ error })
       }
-      // Reset form field
-      this.name = ''
-      this.email = ''
+    },
+    async getData () {
+      try {
+        const response = await axios.get(url)
+        // JSON responses are automatically parsed.
+        this.posts = await response.data
+        console.log(this.posts)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async addWoof () {
+      try {
+        const response = await axios.post(url, this.addData)
+        this.addMessage = 'response ' + response.status + ' ' + response.statusText
+        this.getData()
+      } catch (ex) {
+        alert(ex.message)
+      }
     }
+  },
+  async created () {
+    this.addWoof()
   }
 }
 </script>
