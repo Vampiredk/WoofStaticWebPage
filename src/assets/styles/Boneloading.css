@@ -1,0 +1,52 @@
+#boneloading {
+  position: absolute;
+  left: 42%;
+  top: 25%;
+  animation: rotate 10s;
+}
+
+#bonetxt {
+  position: absolute;
+  color: #ffeb2c;
+  font-family: AddenRegular;
+  font-size: 60px;
+  font-weight: 400;
+  top: 55%;
+  left: 27%;
+}
+
+#bonetxt2 {
+  position: absolute;
+  color: #ffeb2c;
+  font-family: AddenRegular;
+  font-size: 60px;
+  font-weight: 400;
+  top: 55%;
+  left: 35%;
+}
+
+.bonefinddogbtn {
+  background-color: black;
+  color: white;
+  padding: 5px 15px;
+  display: inline-block;
+  font-size: 25px;
+  width: 200px;
+  font-family: Nunito;
+  cursor: pointer;
+  font-display: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 75%;
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+  

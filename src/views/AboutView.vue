@@ -47,33 +47,68 @@
         <source src="../assets/video/Underwater.mp4" type="video/mp4">
       </video>
     </div>
-    <div id="cloud" v-if="answerbtn">
-      <img id="videoCloud" alt="Cloud" src="../assets/Images/Cloud.png">
-      <button class="cloudvideobtn" @click="addAnswer(1)">{{ btn1 }}</button>
-      <button class="cloudvideobtn" @click="addAnswer(2)">{{ btn2 }}</button>
+    <div id="cloud" v-if="showcloud">
+      <img id="videoCloud" alt="Cloud" v-if="showcloudsky" src="../assets/Images/Cloud.png">
+      <p id="videocloudTxt" v-if="questiontxt">
+      {{ txt1 }}<br>
+      {{ txt2 }}<br></p>
+      <button class="cloudvideobtn" v-if="answerbtn" @click="addAnswer(1)">{{ btn1 }}</button>
+      <button class="cloudvideobtn" v-if="answerbtn" @click="addAnswer(2)">{{ btn2 }}</button>
     </div>
-      <div v-if="showFindDogbtn">
-        <ul v-if="findDog() === 'charles'">
+    <div v-if="showFindDogbtn">
+        <ul v-if="charlesbtn">
           <router-link to="/Charles">
-            <button class="button" >Find Hund</button>
+            <button class="finddogbtn" >Find Hund</button>
           </router-link>
         </ul>
-        <ul v-if="findDog() === 'bandit'">
+        <ul v-if="banditbtn">
           <router-link to="/Bandit">
-            <button class="button" >Find Hund</button>
+            <button class="finddogbtn" >Find Hund</button>
           </router-link>
         </ul>
-        <ul v-if="findDog() === 'frida'">
+        <ul v-if="fridabtn">
           <router-link to="/Frida">
-            <button class="button" >Find Hund</button>
+            <button class="finddogbtn" >Find Hund</button>
           </router-link>
         </ul>
-        <ul v-if="findDog() === 'tessa'">
+        <ul v-if="tessabtn">
           <router-link to="/Tessa">
-          <button class="button" >Find Hund</button>
+          <button class="finddogbtn" >Find Hund</button>
+          </router-link>
+        </ul>
+    </div>
+    <div v-if="finddogbool">
+      <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
+      <div id="rightalign">
+        <img alt="mutebtn" src="../assets/Images/Soundbtn.png">
+      </div>
+      <br>
+      <img id="boneloading" src="../assets/Images/LoadingBone.png">
+      <p id="bonetxt" v-if="bonetxt1" >. . . Leder efter jeres hund . . .</p>
+      <p id="bonetxt2" v-if="bonetxt2" >Jeres hund er fundet</p>
+      <div v-if="bonetxt2">
+        <ul v-if="charlesbtn">
+          <router-link to="/Charles">
+            <button class="bonefinddogbtn" >Find Hund</button>
+          </router-link>
+        </ul>
+        <ul v-if="bonetxt1">
+          <router-link to="/Bandit">
+            <button class="bonefinddogbtn" >Find Hund</button>
+          </router-link>
+        </ul>
+        <ul v-if="fridabtn">
+          <router-link to="/Frida">
+            <button class="bonefinddogbtn" >Find Hund</button>
+          </router-link>
+        </ul>
+        <ul v-if="tessabtn">
+          <router-link to="/Tessa">
+          <button class="bonefinddogbtn" >Find Hund</button>
           </router-link>
         </ul>
       </div>
+    </div>
   </body>
 </template>
 
@@ -84,7 +119,7 @@ export default {
   props: [],
   data: function () {
     return {
-      buttonAnswer: [],
+      buttonAnswer: [1, 1, 1, 1],
       BeachV: false,
       BeachM: false,
       CircusV: false,
@@ -99,29 +134,48 @@ export default {
       SpaceM: false,
       UnderwaterV: false,
       UnderwaterM: false,
-      showButton: false,
+      fridabtn: false,
+      tessabtn: false,
+      charlesbtn: false,
+      banditbtn: false,
+      showcloud: false,
       showFindDogbtn: false,
       answerbtn: false,
+      finddogbool: false,
+      questiontxt: true,
+      showcloudsky: true,
+      bonetxt1: true,
+      bonetxt2: false,
       btn1: 'Undervisning',
-      btn2: 'Frikvarter'
+      btn2: 'Frikvarter',
+      txt1: 'Mon det er en naturhund?',
+      txt2: 'Vælg en knap, for at komme vider.'
     }
   },
   methods: {
     showButtonAfter5Seconds () {
       setTimeout(() => {
-        this.showButton = true
+        this.showcloud = true
         this.Pause_play_video()
-        this.answerbtn = true
+        if (this.finddogbool === false) {
+          this.answerbtn = true
+        } else {
+          this.showFindDogbtn = true
+        }
       }, 7500)
     },
     addAnswer (value) {
       this.buttonAnswer.push(value)
       console.log(this.buttonAnswer)
-      this.showButton = false
-      this.Pause_play_video()
-      this.newQuestion()
-      this.showButtonAfter5Seconds()
-      this.answerbtn = false
+      this.showcloud = false
+      if (this.buttonAnswer.length >= 5) {
+        this.Pause_play_video()
+        this.newQuestion()
+        this.showButtonAfter5Seconds()
+        this.answerbtn = false
+      } else {
+        this.newQuestion()
+      }
     },
     Pause_play_video () {
       var video = document.getElementById('myVideo')
@@ -134,17 +188,23 @@ export default {
     newQuestion () {
       if (this.buttonAnswer.length === 1) {
         this.ChangeToCity()
-      }
-      if (this.buttonAnswer.length === 2) {
+      } else if (this.buttonAnswer.length === 2) {
         this.ChangeToNight()
-      }
-      if (this.buttonAnswer.length === 3) {
+      } else if (this.buttonAnswer.length === 3) {
         this.ChangeToSpace()
-      }
-      if (this.buttonAnswer.length === 4) {
+      } else if (this.buttonAnswer.length === 4) {
         this.ChangeToUnderwater()
-      } else {
-        console.log('error')
+      } else if (this.buttonAnswer.length >= 5) {
+        this.finddogbool = true
+        this.questiontxt = false
+        this.showcloud = false
+        this.showcloudsky = false
+        this.finddog()
+        this.removeVideo()
+        setTimeout(() => {
+          this.bonetxt1 = false
+          this.bonetxt2 = true
+        }, 9000)
       }
     },
 
@@ -159,23 +219,27 @@ export default {
               console.log('Brætspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.fridabtn = true
                 // frida
-                return ('frida')
+                return 'frida'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.fridabtn = true
                 // frida
-                return ('frida')
+                return 'frida'
               }
             } else if (this.buttonAnswer.at(3) === 2) {
               console.log('boldspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.charlesbtn = true
                 // Charles
-                return ('charles')
+                return 'charles'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.charlesbtn = true
                 // Charles
-                return ('charles')
+                return 'charles'
               }
             }
           } else if (this.buttonAnswer.at(2) === 2) {
@@ -184,23 +248,27 @@ export default {
               console.log('Brætspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.fridabtn = true
                 // frida
-                return ('frida')
+                return 'frida'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.fridabtn = true
                 // frida
-                return ('frida')
+                return 'frida'
               }
             } else if (this.buttonAnswer.at(3) === 2) {
               console.log('boldspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.tessabtn = true
                 // Tessa
-                return ('tessa')
+                return 'tessa'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.tessabtn = true
                 // Tessa
-                return ('tessa')
+                return 'tessa'
               }
             }
           }
@@ -212,23 +280,27 @@ export default {
               console.log('Brætspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.charlesbtn = true
                 // Charles
-                return ('charles')
+                return 'charles'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.charlesbtn = true
                 // Charles
-                return ('charles')
+                return 'charles'
               }
             } else if (this.buttonAnswer.at(3) === 2) {
               console.log('boldspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.fridabtn = true
                 // frida
-                return ('frida')
+                return 'frida'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.fridabtn = true
                 // frida
-                return ('frida')
+                return 'frida'
               }
             }
           } else if (this.buttonAnswer.at(2) === 2) {
@@ -237,23 +309,27 @@ export default {
               console.log('Brætspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.charlesbtn = true
                 // Charles
-                return ('charles')
+                return 'charles'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.charlesbtn = true
                 // Charles
-                return ('charles')
+                return 'charles'
               }
             } else if (this.buttonAnswer.at(3) === 2) {
               console.log('boldspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.banditbtn = true
                 // Bandit
-                return ('bandit')
+                return 'bandit'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.banditbtn = true
                 // Bandit
-                return ('bandit')
+                return 'bandit'
               }
             }
           }
@@ -268,23 +344,27 @@ export default {
               console.log('Brætspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.fridabtn = true
                 // frida
-                return ('frida')
+                return 'frida'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.fridabtn = true
                 // frida
-                return ('frida')
+                return 'frida'
               }
             } else if (this.buttonAnswer.at(3) === 2) {
               console.log('boldspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.tessabtn = true
                 // Tessa
-                return ('tessa')
+                return 'tessa'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.tessabtn = true
                 // Tessa
-                return ('tessa')
+                return 'tessa'
               }
             }
           } else if (this.buttonAnswer.at(2) === 2) {
@@ -293,23 +373,27 @@ export default {
               console.log('Brætspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.tessabtn = true
                 // Tessa
-                return ('tessa')
+                return 'tessa'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.tessabtn = true
                 // Tessa
-                return ('tessa')
+                return 'tessa'
               }
             } else if (this.buttonAnswer.at(3) === 2) {
               console.log('boldspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.tessabtn = true
                 // Tessa
-                return ('tessa')
+                return 'tessa'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.tessabtn = true
                 // Tessa
-                return ('tessa')
+                return 'tessa'
               }
             }
           }
@@ -321,23 +405,27 @@ export default {
               console.log('Brætspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.charlesbtn = true
                 // Charles
-                return ('charles')
+                return 'charles'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.charlesbtn = true
                 // Charles
-                return ('charles')
+                return 'charles'
               }
             } else if (this.buttonAnswer.at(3) === 2) {
               console.log('boldspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.banditbtn = true
                 // Bandit
-                return ('bandit')
+                return 'bandit'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.banditbtn = true
                 // Bandit
-                return ('bandit')
+                return 'bandit'
               }
             }
           } else if (this.buttonAnswer.at(2) === 2) {
@@ -346,23 +434,27 @@ export default {
               console.log('Brætspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.banditbtn = true
                 // Bandit
-                return ('bandit')
+                return 'bandit'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.banditbtn = true
                 // Bandit
-                return ('bandit')
+                return 'bandit'
               }
             } else if (this.buttonAnswer.at(3) === 2) {
               console.log('boldspil')
               if (this.buttonAnswer.at(4) === 1) {
                 console.log('Hver for sig')
+                this.banditbtn = true
                 // Bandit
-                return ('bandit')
+                return 'bandit'
               } else if (this.buttonAnswer.at(4) === 2) {
                 console.log('Sammen')
+                this.banditbtn = true
                 // Bandit
-                return ('bandit')
+                return 'bandit'
               }
             }
           }
@@ -373,6 +465,7 @@ export default {
     ChangeToCity () {
       this.btn1 = 'Alenearbejde'
       this.btn2 = 'Gruppearbejde'
+      this.txt1 = 'Eller måske en byhund?'
       this.CityV = true
       this.CityM = true
       setTimeout(() => {
@@ -383,6 +476,7 @@ export default {
     ChangeToUnderwater () {
       this.btn1 = 'Sammen'
       this.btn2 = 'Hver for sig'
+      this.txt1 = 'Eller måske en vandhund?'
       this.UnderwaterM = true
       this.UnderwaterV = true
       setTimeout(() => {
@@ -393,6 +487,7 @@ export default {
     ChangeToSpace () {
       this.btn1 = 'Brætspil'
       this.btn2 = 'Boldspil'
+      this.txt1 = 'Hvad med en rumhund?'
       this.SpaceM = true
       this.SpaceV = true
       setTimeout(() => {
@@ -403,6 +498,7 @@ export default {
     ChangeToNight () {
       this.btn1 = 'Ro'
       this.btn2 = 'Energi'
+      this.txt1 = 'Mon det er en nathund?'
       this.NightM = true
       this.NightV = true
       setTimeout(() => {
@@ -431,6 +527,22 @@ export default {
         this.CircusM = false
       }, 500)
       this.CircusV = false
+    },
+    removeVideo () {
+      this.BeachV = false
+      this.BeachM = false
+      this.CircusV = false
+      this.CircusM = false
+      this.CityV = false
+      this.CityM = false
+      this.ForestV = false
+      this.ForestM = false
+      this.NightV = false
+      this.NightM = false
+      this.SpaceV = false
+      this.SpaceM = false
+      this.UnderwaterV = false
+      this.UnderwaterM = false
     }
   },
   created: function () {

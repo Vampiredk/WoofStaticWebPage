@@ -4,14 +4,17 @@
   </head>
   <body>
     <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
+    <div id="rightalign">
+      <img alt="mutebtn" src="../assets/Images/Soundbtn.png">
+    </div>
     <br>
     <div id="cloud">
       <img id="combinedSh" alt="Cloud" src="../assets/Images/Cloud.png">
-      <p id="cloudtext">Vil i lære hinanden <br>
-      bedre at kende i <br>
-      jeres klassen?</p>
+      <p id="cloudtext">Vil I lære jeres klasse bedre at kende?<br>
+      Tryk på knappen for at finde jeres klassehund.<br>
+      </p>
       <router-link to="/about">
-        <button class="cloudbtn">Begynd at lede :)</button>
+        <button class="cloudbtn">Start</button>
       </router-link>
     </div>
     <div id="centercontainer">

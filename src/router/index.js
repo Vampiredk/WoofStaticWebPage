@@ -18,27 +18,22 @@ const routes = [
   {
     path: '/Bandit',
     name: 'Bandit',
-    component: () => import('../views/dogs/Bandit.vue')
+    component: () => import('../views/Bandit.vue')
   },
   {
     path: '/Charles',
     name: 'Charles',
-    component: () => import('../views/dogs/Charles.vue')
+    component: () => import('../views/Charles.vue')
   },
   {
     path: '/Frida',
     name: 'Frida',
-    component: () => import('../views/dogs/Frida.vue')
-  },
-  {
-    path: '/Kalle',
-    name: 'Kalle',
-    component: () => import('../views/dogs/Kalle.vue')
+    component: () => import('../views/Frida.vue')
   },
   {
     path: '/Tessa',
     name: 'Tessa',
-    component: () => import('../views/dogs/Tessa.vue')
+    component: () => import('../views/Tessa.vue')
   },
   {
     path: '/emails',
