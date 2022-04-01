@@ -119,7 +119,7 @@ export default {
   props: [],
   data: function () {
     return {
-      buttonAnswer: [1, 1, 1, 1],
+      buttonAnswer: [],
       BeachV: false,
       BeachM: false,
       CircusV: false,
