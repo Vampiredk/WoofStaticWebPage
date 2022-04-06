@@ -27,12 +27,13 @@ div.centeralign{
     border-radius: 12px;
 }
 
-#myVideo {
+.myVideo {
     position: fixed;
     right: 0.5%;
     top: 1%;
     min-width: 99%; 
     min-height: 97%;
+    opacity: 100%;
 }
   
 /* Add some content at the bottom of the video/page */
@@ -51,8 +52,6 @@ div.centeralign{
 }
 
 body {
-    left: 0px;
-    top: 0px;
     background: linear-gradient(45deg, #d36872, #D5766C);
     background-blend-mode: normal;
 }

@@ -1,4 +1,7 @@
 <template>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+  </head>
   <body>
     <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
     <div id="dogcloud">
@@ -13,7 +16,7 @@
       Det virker til at I har det lidt på samme måde her i klassen.  </p>
     </div>
     <div id="dogPos">
-      <img src="../assets/Images/BanditHund.png">
+      <img src="../assets/Images/CharlesHund.png">
     </div>
     <div id="centercontainer">
       <div id="rectangle">
@@ -88,6 +91,7 @@ input[type=text], [type=email], [type=message]  {
     top: 0px;
     width: 265.14px;
     height: 35px;
+    font-family: Nunito;
     border-radius: 6px;
     background: #ffffff;
     background-blend-mode: normal;

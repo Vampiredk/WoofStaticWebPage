@@ -7,5 +7,6 @@ import './assets/styles/WoofLogo.css'
 import './assets/styles/Boneloading.css'
 import './assets/styles/cloud.css'
 import './assets/styles/dog.css'
+import './assets/styles/Verdener.css'
 
 createApp(App).use(router).mount('#app')

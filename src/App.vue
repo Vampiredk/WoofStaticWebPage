@@ -10,7 +10,7 @@
         </router-link>
       </div>
     </div>-->
-  <router-view :clearAnswer="clearAnswer" :Emails="Emails" :addEmail="addEmail"/>
+  <router-view/>
 </template>
 
 <script>
