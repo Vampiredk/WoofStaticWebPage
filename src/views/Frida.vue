@@ -4,6 +4,9 @@
   </head>
   <body>
     <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
+    <audio id="revealaudio">
+      <source src="../assets/sound/Revealsoundlayer1.wav" type="audio/wav">
+    </audio>
     <div id="dogcloud">
       <p Id="dogTitleText">
         Ok, I minder om mig!<br>
@@ -55,9 +58,17 @@
 // @ is an alias to /src
 export default {
   name: 'MyFrida',
-  props: ['buttonAnswer', 'findDog']
-
+  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound'],
+  created: function () {
+    setTimeout(() => {
+      this.playclicksound('revealaudio')
+      setTimeout(() => {
+        this.pauseclicksound('revealaudio')
+      }, 2500)
+    })
+  }
 }
+
 </script>
 
 <style scoped>

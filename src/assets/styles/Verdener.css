@@ -24,7 +24,7 @@
     border-radius: 12px;
     left: 35%;
     transform: translateX(-50%) translateY(-50%);
-    top: -280px;
+    top: 400px;
 }
 
 #verdentxt{
@@ -64,4 +64,52 @@
 
 #UWV {
     opacity: 0;
+}
+
+#verden1 {
+    position: absolute;
+    left: 58%;
+    top: 13%;
+    transform: rotate(4.000003deg);
+}
+
+#verden2 {
+    position: absolute;
+    left: 73%;
+    top: 42%;
+    transform: rotate(3.0000026deg);
+}
+
+#verden3 {
+    position: absolute;
+    left: 53%;
+    top: 57%;
+    transform: rotate(-2.0000017deg);
+}
+
+#verden4 {
+    position: absolute;
+    left: 42%;
+    top: 68%;
+    transform: rotate(4.000003deg);
+}
+
+#verden5 {
+    position: absolute;
+    left: 18%;
+    top: 54%;
+    transform: rotate(-2.0000017deg);
+}
+
+#verden6 {
+    position: absolute;
+    top: 25%;
+    left: 14%;
+}
+
+#verden7 {
+    position: absolute;
+    top: 12%;
+    left: 26%;
+    transform: rotate(-4.000003deg);
 }

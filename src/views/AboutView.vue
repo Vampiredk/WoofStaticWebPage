@@ -4,8 +4,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
   </head>
   <body>
+    <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
+    <div id="rightalign">
+      <button class="mutebutton" @click="muteSound()">
+        <svg width="20.2742px" height="21.769104px" viewBox="0 0 20.2742 21.769104" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="filter_1">
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.19215687 0 0 0 0 0.21960784 0 0 0 0 0.27058825 0 0 0 1 0" />
+            </filter>
+          </defs>
+          <g id="Speaker-03" filter="url(#filter_1)">
+            <path d="M7.59982 1.24192C8.33926 0.50248 9.60357 1.02619 9.60357 2.07191L9.60357 18.6297C9.60357 19.6754 8.33926 20.1991 7.59982 19.4597L2.7592 14.619L1.17377 14.619C0.525518 14.619 0 14.0935 0 13.4453L0 7.25632C0 6.60806 0.525518 6.08255 1.17377 6.08255L2.7592 6.08255L7.59982 1.24192ZM7.46944 4.39041L3.98697 7.87288C3.76685 8.093 3.4683 8.21666 3.15699 8.21666L2.13413 8.21666L2.13413 12.4849L3.15699 12.4849C3.4683 12.4849 3.76685 12.6086 3.98697 12.8287L7.46944 16.3112L7.46944 4.39041Z" id="Shape" fill="#283238" fill-rule="evenodd" stroke="none" />
+            <path d="M20.2742 10.8843C20.2742 5.61618 16.6383 1.19725 11.739 0L11.739 2.21333C15.4456 3.35291 18.1401 6.80396 18.1401 10.8843C18.1401 14.9654 15.4447 18.417 11.7369 19.5559L11.7369 21.7691C16.6372 20.5726 20.2742 16.1532 20.2742 10.8843Z" id="Path" fill="#7D909B" stroke="none" />
+            <path d="M16.0059 10.8843C16.0059 8.0003 14.2457 5.52742 11.741 4.48136L11.741 6.89336C13.026 7.75505 13.8718 9.22088 13.8718 10.8843C13.8718 12.5487 13.025 14.0153 11.7387 14.8768L11.7387 17.2882C14.2447 16.2427 16.0059 13.7692 16.0059 10.8843Z" id="Path" fill="#7D909B" stroke="none" />
+          </g>
+        </svg>
+      </button>
+    </div>
+    <br>
     <div v-if="startfindhud" id="startfindhund">
       <div>
+        <audio id="revealwaitingaudio">
+          <source src="../assets/sound/Revealsoundlayer2.wav" type="audio/wav">
+        </audio>
+        <audio id="clickaudio">
+          <source src="../assets/sound/clickselect.wav" type="audio/wav">
+        </audio>
         <audio v-if="ForestM" autoplay loop>
           <source src="../assets/sound/Forest.wav" type="audio/wav">
         </audio>
@@ -51,28 +75,31 @@
       </div>
       <div id="cloud" v-if="showcloud">
         <img id="videoCloud" alt="Cloud" v-if="showcloudsky" src="../assets/Images/Cloud.png">
-        <p id="videocloudTxt" v-if="questiontxt">
-        {{ txt1 }}<br>
-        {{ txt2 }}<br></p>
+        <p id="videocloudTxt" v-if="questiontxt">{{ txt1 }}</p>
+        <P id="videocloudbtntxt" v-if="questiontxt">{{ txt2 }}</p>
         <button class="cloudvideobtn" v-if="answerbtn" @click="addAnswer(1)">{{ btn1 }}</button>
         <button class="cloudvideobtn" v-if="answerbtn" @click="addAnswer(2)">{{ btn2 }}</button>
       </div>
     </div>
     <div v-if="verdener">
-      <img id="VerdenPos" alt="7verdener" src="../assets/Images/7verdener.png">
+      <img id="verden1" alt="7verdener" src="../assets/Images/verden1.png">
+      <img id="verden2" alt="7verdener" src="../assets/Images/verden2.png">
+      <img id="verden3" alt="7verdener" src="../assets/Images/verden3.png">
+      <img id="verden4" alt="7verdener" src="../assets/Images/verden4.png">
+      <img id="verden5" alt="7verdener" src="../assets/Images/verden5.png">
+      <img id="verden6" alt="7verdener" src="../assets/Images/verden6.png">
+      <img id="verden7" alt="7verdener" src="../assets/Images/verden7.png">
       <img id="Verdencloud" alt="Cloud" v-if="showcloudsky" src="../assets/Images/Cloud.png">
       <p id="verdentxt" v-if="questiontxt">
         Inden vi leder efter hunden<br>
       skal vi vide hvilken klasse I går i?</p>
+      <br>
       <button class="verdenbtn" @click="addklassetrin('Indskoling')">Indskoling</button>
       <button class="verdenbtn" @click="addklassetrin('Mellemtrin')">Mellemtrin</button>
       <button class="verdenbtn" @click="addklassetrin('Udskoling')">Udskoling</button>
     </div>
     <div v-if="finddogbool">
       <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
-      <div id="rightalign">
-        <img alt="mutebtn" src="../assets/Images/Soundbtn.png">
-      </div>
       <br>
       <img id="boneloading" src="../assets/Images/LoadingBone.png">
       <p id="bonetxt" v-if="bonetxt1" >. . . Leder efter jeres hund . . .</p>
@@ -85,7 +112,7 @@
 // @ is an alias to /src
 export default {
   name: 'AboutView',
-  props: [],
+  props: ['mutesounds', 'muteSound', 'playclicksound', 'pauseclicksound'],
   data: function () {
     return {
       buttonAnswer: [],
@@ -134,10 +161,13 @@ export default {
       this.newQuestion()
       this.Pause_play_video()
       this.answerbtn = false
+      if (this.mutesounds === 0) {
+        this.playclicksound('clickaudio')
+      }
     },
     Pause_play_video () {
       if (this.playingV === 0) {
-        var video = document.getElementById('FV')
+        const video = document.getElementById('FV')
         document.getElementById('FV').style.opacity = '1'
         video.play()
         this.playingV = 1
@@ -148,7 +178,7 @@ export default {
           this.answerbtn = true
         }, 7500)
       } else if (this.playingV === 1) {
-        var video1 = document.getElementById('CV')
+        const video1 = document.getElementById('CV')
         document.getElementById('CV').style.opacity = '1'
         video1.play()
         this.playingV = 2
@@ -159,7 +189,7 @@ export default {
           this.answerbtn = true
         }, 7500)
       } else if (this.playingV === 2) {
-        var video2 = document.getElementById('NV')
+        const video2 = document.getElementById('NV')
         document.getElementById('NV').style.opacity = '1'
         video2.play()
         this.playingV = 3
@@ -170,7 +200,7 @@ export default {
           this.answerbtn = true
         }, 7500)
       } else if (this.playingV === 3) {
-        var video3 = document.getElementById('SV')
+        const video3 = document.getElementById('SV')
         document.getElementById('SV').style.opacity = '1'
         video3.play()
         this.playingV = 4
@@ -181,7 +211,7 @@ export default {
           this.answerbtn = true
         }, 7500)
       } else if (this.playingV === 4) {
-        var video4 = document.getElementById('UWV')
+        const video4 = document.getElementById('UWV')
         document.getElementById('UWV').style.opacity = '1'
         video4.play()
         this.playingV = 5
@@ -197,7 +227,7 @@ export default {
         if (this.Årgang === 'Mellemtrin' || this.Årgang === 'Udskoling') {
           console.log('årgng er mellemtrin eller udskoling')
           if (this.playingV === 5) {
-            var video5 = document.getElementById('CCV')
+            const video5 = document.getElementById('CCV')
             document.getElementById('CCV').style.opacity = '1'
             console.log('start playing circusV')
             video5.play()
@@ -209,7 +239,7 @@ export default {
               this.answerbtn = true
             }, 7500)
           } else if (this.playingV === 6) {
-            var video6 = document.getElementById('BV')
+            const video6 = document.getElementById('BV')
             document.getElementById('BV').style.opacity = '1'
             video6.play()
             this.playingV = 6
@@ -240,9 +270,11 @@ export default {
           this.showcloudsky = false
           this.finddog()
           this.removeVideo()
+          this.playclicksound('revealwaitingaudio')
           setTimeout(() => {
             this.bonetxt1 = false
             this.bonetxt2 = true
+            this.pauseclicksound('revealwaitingaudio')
             setTimeout(() => {
               if (this.charlesbtn === true) {
                 this.$router.push({ path: '/charles' })
@@ -542,23 +574,35 @@ export default {
       this.btn1 = 'Alenearbejde'
       this.btn2 = 'Gruppearbejde'
       this.txt1 = 'Eller måske en byhund?'
+      if (this.mutesounds === 1) {
+        this.CityM = false
+      } else {
+        this.CityM = true
+      }
       this.ForestV = false
       this.ForestM = false
-      this.CityM = true
     },
     ChangeToUnderwater () {
       this.btn1 = 'Sammen'
       this.btn2 = 'Hver for sig'
       this.txt1 = 'Eller måske en vandhund?'
+      if (this.mutesounds === 1) {
+        this.UnderwaterM = false
+      } else {
+        this.UnderwaterM = true
+      }
       this.SpaceV = false
       this.SpaceM = false
-      this.UnderwaterM = true
     },
     ChangeToSpace () {
       this.btn1 = 'Brætspil'
       this.btn2 = 'Boldspil'
       this.txt1 = 'Hvad med en rumhund?'
-      this.SpaceM = true
+      if (this.mutesounds === 1) {
+        this.SpaceM = false
+      } else {
+        this.SpaceM = true
+      }
       this.NightV = false
       this.NightM = false
     },
@@ -566,23 +610,35 @@ export default {
       this.btn1 = 'Ro'
       this.btn2 = 'Energi'
       this.txt1 = 'Mon det er en nathund?'
+      if (this.mutesounds === 1) {
+        this.NightM = false
+      } else {
+        this.NightM = true
+      }
       this.CityV = false
       this.CityM = false
-      this.NightM = true
     },
     ChangeToCircus () {
       this.btn1 = 'Brætspil'
       this.btn2 = 'Boldspil'
       this.txt1 = 'Ok, hva’ med en cirkushund?'
+      if (this.mutesounds === 1) {
+        this.CircusM = false
+      } else {
+        this.CircusM = true
+      }
       this.UnderwaterV = false
       this.UnderwaterM = false
-      this.CircusM = true
     },
     ChangteToBeach () {
       this.btn1 = 'Leg'
       this.btn2 = 'Lektier'
       this.txt1 = 'Måske en strandhund?'
-      this.BeachM = true
+      if (this.mutesounds === 1) {
+        this.BeachM = false
+      } else {
+        this.BeachM = true
+      }
       this.CircusV = false
       this.CircusM = false
     },
@@ -607,7 +663,11 @@ export default {
       this.verdener = false
       document.getElementById('startfindhund').style.opacity = '1'
       document.getElementById('FV').style.opacity = '1'
-      this.ForestM = true
+      if (this.mutesounds === 1) {
+        this.ForestM = false
+      } else {
+        this.ForestM = true
+      }
       this.Pause_play_video()
       this.CityV = true
       console.log(this.Årgang)

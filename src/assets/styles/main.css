@@ -17,8 +17,6 @@ div.centeralign{
     border: none;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 12px;
     font-family: Nunito;
     margin: 4px 2px;
@@ -81,6 +79,12 @@ body {
     width: 100%;
     text-align: center;
     font-size: 18px;
+}
+
+.mutebutton {
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
 }
 
   

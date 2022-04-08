@@ -57,8 +57,15 @@
 // @ is an alias to /src
 export default {
   name: 'MyTessa',
-  props: ['buttonAnswer', 'findDog']
-
+  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound'],
+  created: function () {
+    setTimeout(() => {
+      this.playclicksound('revealaudio')
+      setTimeout(() => {
+        this.pauseclicksound('revealaudio')
+      }, 2500)
+    })
+  }
 }
 </script>
 

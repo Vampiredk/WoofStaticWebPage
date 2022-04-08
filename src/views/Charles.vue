@@ -57,7 +57,7 @@
 import emailjs from 'emailjs-com'
 export default {
   name: 'MyCharles',
-  props: ['buttonAnswer', 'findDog'],
+  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound'],
   data () {
     return {
       name: '',
@@ -81,6 +81,14 @@ export default {
       this.email = ''
       this.message = ''
     }
+  },
+  created: function () {
+    setTimeout(() => {
+      this.playclicksound('revealaudio')
+      setTimeout(() => {
+        this.pauseclicksound('revealaudio')
+      }, 2500)
+    })
   }
 }
 </script>
