@@ -24,6 +24,15 @@
     <br>
     <div v-if="startfindhud" id="startfindhund">
       <div>
+        <audio id="dogbark1audio">
+          <source src="../assets/sound/bark1.wav" type="audio/wav">
+        </audio>
+        <audio id="dogbark2audio">
+          <source src="../assets/sound/bark2.wav" type="audio/wav">
+        </audio>
+        <audio id="questionaudio">
+          <source src="../assets/sound/question.wav" type="audio/wav">
+        </audio>
         <audio id="revealwaitingaudio">
           <source src="../assets/sound/Revealsoundlayer2.wav" type="audio/wav">
         </audio>
@@ -174,6 +183,9 @@ export default {
         console.log(this.playingV)
         setTimeout(() => {
           video.pause()
+          if (this.mutesounds === 0) {
+            this.playclicksound('questionaudio')
+          }
           this.showcloud = true
           this.answerbtn = true
         }, 7500)
@@ -185,6 +197,9 @@ export default {
         console.log(this.playingV)
         setTimeout(() => {
           video1.pause()
+          if (this.mutesounds === 0) {
+            this.playclicksound('questionaudio')
+          }
           this.showcloud = true
           this.answerbtn = true
         }, 7500)
@@ -196,6 +211,9 @@ export default {
         console.log(this.playingV)
         setTimeout(() => {
           video2.pause()
+          if (this.mutesounds === 0) {
+            this.playclicksound('questionaudio')
+          }
           this.showcloud = true
           this.answerbtn = true
         }, 7500)
@@ -207,6 +225,9 @@ export default {
         console.log(this.playingV)
         setTimeout(() => {
           video3.pause()
+          if (this.mutesounds === 0) {
+            this.playclicksound('questionaudio')
+          }
           this.showcloud = true
           this.answerbtn = true
         }, 7500)
@@ -218,6 +239,9 @@ export default {
         console.log(this.playingV)
         setTimeout(() => {
           video4.pause()
+          if (this.mutesounds === 0) {
+            this.playclicksound('questionaudio')
+          }
           this.showcloud = true
           this.answerbtn = true
         }, 7500)
@@ -235,6 +259,9 @@ export default {
             console.log(this.playingV)
             setTimeout(() => {
               video5.pause()
+              if (this.mutesounds === 0) {
+                this.playclicksound('questionaudio')
+              }
               this.showcloud = true
               this.answerbtn = true
             }, 7500)
@@ -246,6 +273,9 @@ export default {
             console.log(this.playingV)
             setTimeout(() => {
               video6.pause()
+              if (this.mutesounds === 0) {
+                this.playclicksound('questionaudio')
+              }
               this.showcloud = true
               this.answerbtn = true
             }, 7500)
@@ -270,7 +300,9 @@ export default {
           this.showcloudsky = false
           this.finddog()
           this.removeVideo()
-          this.playclicksound('revealwaitingaudio')
+          if (this.mutesounds === 0) {
+            this.playclicksound('revealwaitingaudio')
+          }
           setTimeout(() => {
             this.bonetxt1 = false
             this.bonetxt2 = true
@@ -299,9 +331,13 @@ export default {
             this.showcloudsky = false
             this.finddog()
             this.removeVideo()
+            if (this.mutesounds === 0) {
+              this.playclicksound('revealwaitingaudio')
+            }
             setTimeout(() => {
               this.bonetxt1 = false
               setTimeout(() => {
+                this.pauseclicksound('revealwaitingaudio')
                 if (this.charlesbtn === true) {
                   this.$router.push({ path: '/charles' })
                 } else if (this.fridabtn === true) {
@@ -614,6 +650,9 @@ export default {
         this.NightM = false
       } else {
         this.NightM = true
+        setTimeout(() => {
+          this.playclicksound('dogbark2audio')
+        }, this.randomdogsoundGen())
       }
       this.CityV = false
       this.CityM = false
@@ -667,10 +706,16 @@ export default {
         this.ForestM = false
       } else {
         this.ForestM = true
+        setTimeout(() => {
+          this.playclicksound('dogbark1audio')
+        }, this.randomdogsoundGen())
       }
       this.Pause_play_video()
       this.CityV = true
       console.log(this.Årgang)
+    },
+    randomdogsoundGen () {
+      return Math.floor(Math.random() * 7001) + 1001
     }
   },
   created: function () {

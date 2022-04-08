@@ -58,14 +58,16 @@
 // @ is an alias to /src
 export default {
   name: 'MyFrida',
-  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound'],
+  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound', 'mutesounds'],
   created: function () {
-    setTimeout(() => {
-      this.playclicksound('revealaudio')
+    if (this.mutesounds === 0) {
       setTimeout(() => {
-        this.pauseclicksound('revealaudio')
-      }, 2500)
-    })
+        this.playclicksound('revealaudio')
+        setTimeout(() => {
+          this.pauseclicksound('revealaudio')
+        }, 2500)
+      })
+    }
   }
 }
 

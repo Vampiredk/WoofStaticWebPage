@@ -20,7 +20,7 @@
     font-size: 45px;
     font-weight: 900;
     left: 100px;
-    width: 1500px;
+    width: 500px;
     transform: translateX(-50%) translateY(-50%);
 }
 #cloudpressbtntxt {
@@ -31,7 +31,7 @@
     font-size: 35px;
     font-weight: 400;
     left: 100px;
-    width: 1500px;
+    width: 500px;
     top: 50px;
     transform: translateX(-50%) translateY(-50%);
 }
@@ -93,7 +93,7 @@
     font-weight: 900;
     left: 65%;
     top: 10px;
-    width: 3000px;
+    width: 1500px;
     transform: translateX(-50%) translateY(-50%);
 }
 #videocloudbtntxt {
