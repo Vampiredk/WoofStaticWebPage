@@ -23,6 +23,7 @@
             <input type="submit" value="Send">
             </form>
         </div>
+      <button @click="addWoof()">gem</button>
     </div>
 </template>
 
@@ -35,16 +36,8 @@ export default {
   name: 'MyEmails',
   data () {
     return {
-      name: '',
-      message: 'test test',
-      messagebox: false,
-      emails: '',
-      skole: '',
-      Aldersgruppe: '',
-      Hund: '',
-      klassensSvar: '',
-      posts: [],
-      addData: { id: 0, emails: 'simonbreit2134 gmail.com', skole: 'Kildegård SKole', Aldersgruppe: 'UdSkoling', Hund: 'Balter', klassensSvar: 'Inde, Bjerg, mange, lektier' }
+      savethis: 'supercool',
+      addData: { id: 0, emails: toString(this.savethis), skole: 'HJORTESPRING', klasse: '4x', Afdeling: 'indskoling', Hund: 'Bandit', klassensSvar: '1,1,1,1' }
     }
   },
   methods: {

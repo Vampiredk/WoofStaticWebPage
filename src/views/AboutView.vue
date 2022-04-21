@@ -99,19 +99,18 @@
       <img id="verden6" alt="7verdener" src="../assets/Images/verden6.png">
       <img id="verden7" alt="7verdener" src="../assets/Images/verden7.png">
       <img id="Verdencloud" alt="Cloud" v-if="showcloudsky" src="../assets/Images/Cloud.png">
-      <p id="verdentxt" v-if="questiontxt">
-        Inden vi leder efter hunden<br>
-      skal vi vide hvilken klasse I går i?</p>
+      <p id="verdentxt" v-if="questiontxt">Allerførst</p>
+      <p id="verdentxt2" v-if="questiontxt">hvilken klasse I går i?</p>
       <br>
-      <button class="verdenbtn" @click="addklassetrin('Indskoling')">Indskoling</button>
-      <button class="verdenbtn" @click="addklassetrin('Mellemtrin')">Mellemtrin</button>
-      <button class="verdenbtn" @click="addklassetrin('Udskoling')">Udskoling</button>
+      <button class="verdenbtn" @click="addklassetrin('Indskoling')">0.-3 klasse</button>
+      <button class="verdenbtn" @click="addklassetrin('Mellemtrin')">4. -6 klasse</button>
+      <button class="verdenbtn" @click="addklassetrin('Udskoling')">7. -10 klasse</button>
     </div>
     <div v-if="finddogbool">
       <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
       <br>
       <img id="boneloading" src="../assets/Images/LoadingBone.png">
-      <p id="bonetxt" v-if="bonetxt1" >. . . Leder efter jeres hund . . .</p>
+      <p id="bonetxt" v-if="bonetxt1" >. . . matcher med klassehunh . . .</p>
       <p id="bonetxt2" v-if="bonetxt2" >Jeres hund er fundet</p>
     </div>
   </body>
@@ -121,7 +120,7 @@
 // @ is an alias to /src
 export default {
   name: 'AboutView',
-  props: ['mutesounds', 'muteSound', 'playclicksound', 'pauseclicksound'],
+  props: ['mutesounds', 'muteSound', 'playclicksound', 'pauseclicksound', 'Afdeling', 'addAfdeling', 'klassenssvar'],
   data: function () {
     return {
       buttonAnswer: [],
@@ -153,12 +152,11 @@ export default {
       bonetxt2: false,
       verdener: true,
       startfindhud: true,
-      Årgang: '',
       playingV: 0,
       btn1: 'Undervisning',
       btn2: 'Frikvarter',
       txt1: 'Mon det er en naturhund?',
-      txt2: 'Vælg en knap, for at komme vider.'
+      txt2: 'Hvad kan I bedst lide? '
     }
   },
   methods: {
@@ -247,11 +245,11 @@ export default {
         }, 7500)
       } else if (this.playingV > 4) {
         console.log('playingV er over 4')
-        console.log(this.Årgang)
-        if (this.Årgang === 'Mellemtrin' || this.Årgang === 'Udskoling') {
+        if (this.$Afdeling === 'Mellemtrin' || this.$Afdeling === 'Udskoling') {
           console.log('årgng er mellemtrin eller udskoling')
           if (this.playingV === 5) {
             const video5 = document.getElementById('CCV')
+            console.log('testtest')
             document.getElementById('CCV').style.opacity = '1'
             console.log('start playing circusV')
             video5.play()
@@ -293,31 +291,30 @@ export default {
       } else if (this.buttonAnswer.length === 4) {
         this.ChangeToUnderwater()
       } else if (this.buttonAnswer.length >= 5) {
-        if (this.Årgang === 'Indskoling') {
+        console.log(this.$Afdeling)
+        if (this.$Afdeling === 'Indskoling') {
           this.finddogbool = true
           this.questiontxt = false
           this.showcloud = false
           this.showcloudsky = false
+          this.answerbtn = false
           this.finddog()
           this.removeVideo()
+          this.$klassenssvar = this.buttonAnswer.toString()
           if (this.mutesounds === 0) {
             this.playclicksound('revealwaitingaudio')
           }
           setTimeout(() => {
-            this.bonetxt1 = false
-            this.bonetxt2 = true
             this.pauseclicksound('revealwaitingaudio')
-            setTimeout(() => {
-              if (this.charlesbtn === true) {
-                this.$router.push({ path: '/charles' })
-              } else if (this.fridabtn === true) {
-                this.$router.push({ path: '/frida' })
-              } else if (this.banditbtn === true) {
-                this.$router.push({ path: '/bandit' })
-              } else if (this.tessabtn === true) {
-                this.$router.push({ path: '/tessa' })
-              }
-            }, 1000)
+            if (this.charlesbtn === true) {
+              this.$router.push({ path: '/charles' })
+            } else if (this.fridabtn === true) {
+              this.$router.push({ path: '/frida' })
+            } else if (this.banditbtn === true) {
+              this.$router.push({ path: '/bandit' })
+            } else if (this.tessabtn === true) {
+              this.$router.push({ path: '/tessa' })
+            }
           }, 8000)
         } else {
           if (this.buttonAnswer.length === 5) {
@@ -329,6 +326,7 @@ export default {
             this.questiontxt = false
             this.showcloud = false
             this.showcloudsky = false
+            this.answerbtn = false
             this.finddog()
             this.removeVideo()
             if (this.mutesounds === 0) {
@@ -610,6 +608,7 @@ export default {
       this.btn1 = 'Alenearbejde'
       this.btn2 = 'Gruppearbejde'
       this.txt1 = 'Eller måske en byhund?'
+      console.log('Play city')
       if (this.mutesounds === 1) {
         this.CityM = false
       } else {
@@ -622,6 +621,7 @@ export default {
       this.btn1 = 'Sammen'
       this.btn2 = 'Hver for sig'
       this.txt1 = 'Eller måske en vandhund?'
+      console.log('Play underwater')
       if (this.mutesounds === 1) {
         this.UnderwaterM = false
       } else {
@@ -634,6 +634,7 @@ export default {
       this.btn1 = 'Brætspil'
       this.btn2 = 'Boldspil'
       this.txt1 = 'Hvad med en rumhund?'
+      console.log('Play space')
       if (this.mutesounds === 1) {
         this.SpaceM = false
       } else {
@@ -646,6 +647,7 @@ export default {
       this.btn1 = 'Ro'
       this.btn2 = 'Energi'
       this.txt1 = 'Mon det er en nathund?'
+      console.log('Play night')
       if (this.mutesounds === 1) {
         this.NightM = false
       } else {
@@ -658,9 +660,10 @@ export default {
       this.CityM = false
     },
     ChangeToCircus () {
-      this.btn1 = 'Brætspil'
-      this.btn2 = 'Boldspil'
+      this.btn1 = 'Fremlæggelse'
+      this.btn2 = 'Opgaver'
       this.txt1 = 'Ok, hva’ med en cirkushund?'
+      console.log('Play circus')
       if (this.mutesounds === 1) {
         this.CircusM = false
       } else {
@@ -673,6 +676,7 @@ export default {
       this.btn1 = 'Leg'
       this.btn2 = 'Lektier'
       this.txt1 = 'Måske en strandhund?'
+      console.log('Play beach')
       if (this.mutesounds === 1) {
         this.BeachM = false
       } else {
@@ -698,7 +702,8 @@ export default {
       this.UnderwaterM = false
     },
     addklassetrin (value) {
-      this.Årgang = value
+      this.$Afdeling = value
+      console.log(this.$Afdeling)
       this.verdener = false
       document.getElementById('startfindhund').style.opacity = '1'
       document.getElementById('FV').style.opacity = '1'
@@ -712,7 +717,7 @@ export default {
       }
       this.Pause_play_video()
       this.CityV = true
-      console.log(this.Årgang)
+      console.log(this.Afdeling)
     },
     randomdogsoundGen () {
       return Math.floor(Math.random() * 7001) + 1001

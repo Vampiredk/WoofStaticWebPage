@@ -7,6 +7,9 @@
     <audio id="revealaudio">
       <source src="../assets/sound/Revealsoundlayer1.wav" type="audio/wav">
     </audio>
+    <audio id="revealwaitingaudio">
+      <source src="../assets/sound/Revealsoundlayer2.wav" type="audio/wav">
+    </audio>
     <div id="dogcloud">
       <p Id="dogTitleText">
         Ok, I minder om mig!<br>
@@ -47,7 +50,7 @@
             name="message"
             placeholder="Indtast Klassen"
           >
-          <input type="submit" value="Send">
+          <input @click="addWoof()" type="submit" value="Send">
         </form>>
       </div>
     </div>
@@ -56,21 +59,72 @@
 
 <script>
 // @ is an alias to /src
+import emailjs from 'emailjs-com'
+import axios from 'axios'
+const url = 'https://woofrestservice20220324090401.azurewebsites.net/api/woof'
+
 export default {
   name: 'MyFrida',
-  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound', 'mutesounds'],
+  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound', 'Afdeling', 'klassenssvar'],
+  data () {
+    return {
+      name: 'test',
+      email: 'test2',
+      message: 'lækkert',
+      posts: [],
+      saveemails: this.message,
+      addData: { id: 0, emails: this.saveemails, skole: this.name, klasse: this.message, Afdeling: this.$Afdeling, Hund: 'Bandit', klassensSvar: this.$klassensSvar }
+    }
+  },
+  methods: {
+    sendEmail (e) {
+      try {
+        emailjs.sendForm('service_sfmumua', 'template_vd3nvb8', e.target, '31drUeLFvBRJZ1O7E', {
+          name: this.name,
+          email: this.email,
+          message: this.message
+        })
+      } catch (error) {
+        console.log({ error })
+      }
+      // Reset form field
+      this.name = ''
+      this.email = ''
+      this.message = ''
+    },
+    async getData () {
+      try {
+        const response = await axios.get(url)
+        // JSON responses are automatically parsed.
+        this.posts = await response.data
+        console.log(this.posts)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async addWoof () {
+      this.saveemails = 'super'
+      try {
+        const response = await axios.post(url, this.addData)
+        this.addMessage = 'response ' + response.status + ' ' + response.statusText
+        this.getData()
+      } catch (ex) {
+        alert(ex.message)
+      }
+    }
+  },
   created: function () {
     if (this.mutesounds === 0) {
       setTimeout(() => {
         this.playclicksound('revealaudio')
         setTimeout(() => {
           this.pauseclicksound('revealaudio')
+          this.playclicksound('revealwaitingaudio')
         }, 2500)
       })
     }
   }
 }
-
 </script>
 
 <style scoped>

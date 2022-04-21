@@ -1,9 +1,9 @@
 #combinedSh {
     position: absolute;
-    width: 1000px;
+    width: 1600px;
     height: 500px;
     top: -200px;
-    left: -400px;
+    left: -700px;
   }
 #videoCloud {
     position: absolute;
@@ -19,8 +19,9 @@
     font-family: Nunito;
     font-size: 45px;
     font-weight: 900;
+    top: -35px;
     left: 100px;
-    width: 500px;
+    width: 1600px;
     transform: translateX(-50%) translateY(-50%);
 }
 #cloudpressbtntxt {
@@ -31,8 +32,8 @@
     font-size: 35px;
     font-weight: 400;
     left: 100px;
-    width: 500px;
-    top: 50px;
+    width: 1600px;
+    top: 80px;
     transform: translateX(-50%) translateY(-50%);
 }
 

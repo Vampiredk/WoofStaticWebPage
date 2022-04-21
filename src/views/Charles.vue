@@ -4,6 +4,12 @@
   </head>
   <body>
     <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
+    <audio id="revealwaitingaudio">
+      <source src="../assets/sound/Revealsoundlayer2.wav" type="audio/wav">
+    </audio>
+    <audio id="revealaudio">
+      <source src="../assets/sound/Revealsoundlayer1.wav" type="audio/wav">
+    </audio>
     <div id="dogcloud">
       <p Id="dogTitleText">
         Ok, I minder om mig!<br>
@@ -55,14 +61,19 @@
 <script>
 // @ is an alias to /src
 import emailjs from 'emailjs-com'
+import axios from 'axios'
+const url = 'https://woofrestservice20220324090401.azurewebsites.net/api/woof'
+
 export default {
   name: 'MyCharles',
-  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound'],
+  props: ['buttonAnswer', 'playclicksound', 'pauseclicksound', 'Afdeling', 'klassenssvar'],
   data () {
     return {
       name: '',
       email: '',
-      message: 'Charles'
+      message: '',
+      posts: [],
+      addData: { id: 0, emails: this.email, skole: this.name, klasse: this.message, Afdeling: this.$Afdeling, Hund: 'Bandit', klassensSvar: this.$klassensSvar }
     }
   },
   methods: {
@@ -83,18 +94,30 @@ export default {
     }
   },
   created: function () {
-    setTimeout(() => {
-      this.playclicksound('revealaudio')
+    if (this.mutesounds === 0) {
       setTimeout(() => {
-        this.pauseclicksound('revealaudio')
-      }, 2500)
-    })
+        this.playclicksound('revealaudio')
+        setTimeout(() => {
+          this.pauseclicksound('revealaudio')
+          this.playclicksound('revealwaitingaudio')
+        }, 2500)
+      })
+    }
+  },
+  async addWoof () {
+    try {
+      const response = await axios.post(url, this.addData)
+      this.addMessage = 'response ' + response.status + ' ' + response.statusText
+      this.getData()
+    } catch (ex) {
+      alert(ex.message)
+    }
   }
 }
 </script>
 
 <style scoped>
-input[type=text], [type=email], [type=message]  {
+input[type=text], input[type=email], input[type=message]  {
     left: 547.86px;
     top: 0px;
     width: 265.14px;

@@ -24,9 +24,11 @@
     <br>
     <div id="cloud">
       <img id="combinedSh" alt="Cloud" src="../assets/Images/Cloud.png">
-      <p id="cloudtext">Vil I lære jeres klasse bedre at kende?</p>
+      <p id="cloudtext">Vil I finde klasssens hund og lære hinanden bedre at kende? </p>
       <p id="cloudpressbtntxt">
-      Tryk på knappen for at finde jeres klassehund.
+      For at matche med en hund skal I sammen vælge, hvad I godt kan lide som klassen.<br>
+      Undervejs lærer I måske noget nyt om klassen og hinanden.<br>
+      Tryk på knappen for at starte.
       </p>
       <router-link to="/about">
         <button class="cloudbtn">Start</button>
@@ -36,7 +38,7 @@
       <div id="rectangle">
       </div>
       <div class="center">
-        <button class="button" >Gratis Sign up</button> <button class="button" >Vil du vide mere om Woof?</button> <button class="button" >Kontakt: Woof@wooftech.dk +45 27 14 04 00</button>
+        <button class="button" >Til Læreren</button> <button class="button" >Kontakt</button> <button class="button" >Sign up til WOOFS platform</button>
       </div>
     </div>
   </body>
@@ -46,7 +48,7 @@
 // cd CLI --- CD woof ---- npm run serve
 export default {
   name: 'HomeView',
-  props: ['mutesounds', 'muteSound'],
+  props: ['mutesounds', 'muteSound', 'Afdeling'],
   data: function () {
     return {
     }
