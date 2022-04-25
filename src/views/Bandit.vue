@@ -78,8 +78,14 @@ export default {
   },
   methods: {
     sendEmail (e) {
+      // gøre brug af dette mail sending system https://www.emailjs.com/
+      // i skal starte med at lave en email service, med jeres fortrykkende email
+      // Opret nogle template
+      // den første parameter er for email service ID
+      // den anden parameter er for email template ID
+      // den tredje paremeter er for din public keypååååååååååååååååååååååååååååååo
       try {
-        emailjs.sendForm('service_sfmumua', 'template_vd3nvb8', e.target, '31drUeLFvBRJZ1O7E', {
+        emailjs.sendForm('service_      sfmumua', 'template_vd3nvb8', e.target, '31drUeLFvBRJZ1O7E', {
           name: this.name,
           email: this.email,
           message: this.message
@@ -92,7 +98,7 @@ export default {
       this.name = ''
       this.email = ''
       this.message = ''
-    }
+    ,lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll_:øæ,m.€}            6'
   },
   created: function () {
     if (this.mutesounds === 0) {

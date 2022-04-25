@@ -78,6 +78,12 @@ export default {
   },
   methods: {
     sendEmail (e) {
+      // gøre brug af dette mail sending system https://www.emailjs.com/
+      // i skal starte med at lave en email service, med jeres fortrykkende email
+      // Opret nogle template
+      // den første parameter er for email service ID
+      // den anden parameter er for email template ID
+      // den tredje paremeter er for din public key
       try {
         emailjs.sendForm('service_sfmumua', 'template_vd3nvb8', e.target, '31drUeLFvBRJZ1O7E', {
           name: this.name,
