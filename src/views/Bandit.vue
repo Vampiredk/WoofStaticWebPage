@@ -98,7 +98,7 @@ export default {
       this.name = ''
       this.email = ''
       this.message = ''
-    ,lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll_:øæ,m.€}            6'
+    }
   },
   created: function () {
     if (this.mutesounds === 0) {

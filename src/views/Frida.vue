@@ -27,31 +27,39 @@
       <div id="rectangle">
       </div>
       <div class="center">
+        <div v-if="Afdeling === 'Indskoling'">
           <input type="checkbox" id="vehicle2" name="vehicle2">
           <label for="vehicle2">Jeg er også enig i dette punkt, lorem ipsum amet</label><br>
           <input type="checkbox" id="vehicle1" name="vehicle1">
           <label for="vehicle1">Få tilsendt klassens besvarelse og resultat og hør mere når den nye platform kommer til august.</label><br>
-        <form @submit.prevent="sendEmail">
-          <input
-            type="email"
-            v-model="email"
-            name="email"
-            placeholder="Indtast kontakt email"
-          >
-          <input
-            type="text"
-            v-model="name"
-            name="name"
-            placeholder="Indtast klassens skole"
-          >
-          <input
-            type="message"
-            v-model="message"
-            name="message"
-            placeholder="Indtast Klassen"
-          >
+          <form @submit.prevent="sendEmail">
+            <input
+              type="email"
+              v-model="email"
+              name="email"
+              placeholder="Indtast kontakt email"
+            >
+            <input
+              type="text"
+              v-model="name"
+              name="name"
+              placeholder="Indtast klassens skole"
+            >
+            <input
+              type="message"
+              v-model="message"
+              name="message"
+              placeholder="Indtast Klassen"
+            >
           <input @click="addWoof()" type="submit" value="Send">
-        </form>>
+          </form>>
+        </div>
+        <div v-else-if="Afdeling === 'Mellemtrin'">
+          B
+        </div>
+        <div v-else-if="Afdeling === 'Udskoling'">
+          C
+        </div>
       </div>
     </div>
   </body>
