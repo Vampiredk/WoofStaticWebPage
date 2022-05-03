@@ -608,6 +608,7 @@ export default {
       this.btn1 = 'Alenearbejde'
       this.btn2 = 'Gruppearbejde'
       this.txt1 = 'Eller måske en byhund?'
+      this.txt2 = 'Vælg en af knapperne for at komme videre'
       console.log('Play city')
       if (this.mutesounds === 1) {
         this.CityM = false

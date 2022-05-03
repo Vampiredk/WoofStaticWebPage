@@ -12,8 +12,8 @@
     </audio>
     <div id="dogcloud">
       <p Id="dogTitleText">
-        Ok, I minder om mig!<br>
-        Er I med på en Challenge??
+        Hej! minder I om mig?<br>
+        Og, er I med på en Challenge??
       </p>
       <img id="CloudSize" alt="Cloud" src="../assets/Images/Cloud.png">
       <p id="dogcloudText">Hello freaks. I er awesome og jeg er Bandit! <br>
