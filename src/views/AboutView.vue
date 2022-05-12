@@ -110,7 +110,7 @@
       <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
       <br>
       <img id="boneloading" src="../assets/Images/LoadingBone.png">
-      <p id="bonetxt" v-if="bonetxt1" >. . . matcher med klassehunh . . .</p>
+      <p id="bonetxt" v-if="bonetxt1" >. . . Vi leder efter jeres klasses hundematch . . .</p>
       <p id="bonetxt2" v-if="bonetxt2" >Jeres hund er fundet</p>
     </div>
   </body>
