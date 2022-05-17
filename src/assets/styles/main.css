@@ -87,4 +87,54 @@ body {
     width: 50px;
 }
 
-  
+div#mc_embed_signup {
+    position: fixed;
+    padding: 28px 40px;
+    background: #ffffff;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 30px;
+}
+
+.div#mc_embed_signup h2 {
+    display: none;
+}
+
+div#mc_embed_signup h2 {
+    display: none;
+}
+
+.mc-field-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.indicates-required {
+    display: none;
+}
+
+label {
+    font-family: Nunito;
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0 0 10px;
+}
+
+input#mc-embedded-subscribe {
+    line-height: 20px;
+    height: 50px;
+    margin: 10px 0 auto;
+    width: 100%;
+}
+
+input#mce-EMAIL {
+    height: 48px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: none;
+}
+
+div#centercontainer.special {
+    height: 0;
+}

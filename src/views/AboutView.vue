@@ -110,7 +110,7 @@
       <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
       <br>
       <img id="boneloading" src="../assets/Images/LoadingBone.png">
-      <p id="bonetxt" v-if="bonetxt1" >. . . matcher med klassehunh . . .</p>
+      <p id="bonetxt" v-if="bonetxt1" >...matcher med klassehund...</p>
       <p id="bonetxt2" v-if="bonetxt2" >Jeres hund er fundet</p>
     </div>
   </body>
@@ -608,6 +608,7 @@ export default {
       this.btn1 = 'Alenearbejde'
       this.btn2 = 'Gruppearbejde'
       this.txt1 = 'Eller måske en byhund?'
+      this.txt2 = 'Vælg en af knapperne for at komme videre'
       console.log('Play city')
       if (this.mutesounds === 1) {
         this.CityM = false

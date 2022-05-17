@@ -11,8 +11,10 @@
   font-family: Nunito;
   font-size: 60px;
   font-weight: 400;
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
   top: 55%;
-  left: 28%;
 }
 
 #bonetxt2 {
@@ -21,8 +23,10 @@
   font-family: Nunito;
   font-size: 60px;
   font-weight: 400;
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
   top: 65%;
-  left: 35%;
 }
 
 .bonefinddogbtn {

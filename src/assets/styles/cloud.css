@@ -65,9 +65,9 @@
     font-display: bold;
     left: 70px;
     height: 100px;
-    width: 300px;
+    width: 450px;
     transform: translateX(-50%) translateY(-50%);
-    top: 250px;
+    top: 270px;
 }
 .cloudvideobtn {
     background-color: #73B47A;
@@ -106,7 +106,7 @@
     font-weight: 400;
     left: 63%;
     width: 1500px;
-    top: 85px;
+    top: 105px;
     transform: translateX(-50%) translateY(-50%);
 }
 
