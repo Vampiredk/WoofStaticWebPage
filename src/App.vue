@@ -48,6 +48,7 @@ export default {
     },
     addAfdeling (value) {
       this.Afdeling = value
+      return this
     }
   }
 }

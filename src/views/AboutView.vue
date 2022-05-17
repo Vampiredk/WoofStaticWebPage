@@ -702,7 +702,13 @@ export default {
       this.UnderwaterM = false
     },
     addklassetrin (value) {
-      this.$Afdeling = value
+      if (value === 'Indskoling') {
+        this.addAfdeling('Indskoling')
+      } else if (value === 'Mellemtrin') {
+        this.addAfdeling('Mellemtrin')
+      } else if (value === 'Udskoling') {
+        this.addAfdeling('Udskoling')
+      }
       console.log(this.$Afdeling)
       this.verdener = false
       document.getElementById('startfindhund').style.opacity = '1'

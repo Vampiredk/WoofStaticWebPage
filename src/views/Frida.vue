@@ -134,6 +134,7 @@ export default {
         setTimeout(() => {
           this.pauseclicksound('revealaudio')
           this.playclicksound('revealwaitingaudio')
+          console.log(this.Afdeling)
         }, 2500)
       })
     }
