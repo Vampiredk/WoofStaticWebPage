@@ -19,9 +19,29 @@ const routes = [
     component: () => import('../views/Bandit.vue')
   },
   {
+    path: '/BanditUd',
+    name: 'Bandit',
+    component: () => import('../views/BanditUd.vue')
+  },
+  {
+    path: '/BanditMellem',
+    name: 'Bandit',
+    component: () => import('../views/BanditMellem.vue')
+  },
+  {
     path: '/Charles',
     name: 'Charles',
     component: () => import('../views/Charles.vue')
+  },
+  {
+    path: '/CharlesUd',
+    name: 'Charles',
+    component: () => import('../views/CharlesUd.vue')
+  },
+  {
+    path: '/CharlesMellem',
+    name: 'Charles',
+    component: () => import('../views/CharlesMellem.vue')
   },
   {
     path: '/Frida',
@@ -29,9 +49,29 @@ const routes = [
     component: () => import('../views/Frida.vue')
   },
   {
+    path: '/FridaMellem',
+    name: 'Frida',
+    component: () => import('../views/FridaMellem.vue')
+  },
+  {
+    path: '/FridaUd',
+    name: 'Frida',
+    component: () => import('../views/FridaUd.vue')
+  },
+  {
     path: '/Tessa',
     name: 'Tessa',
     component: () => import('../views/Tessa.vue')
+  },
+  {
+    path: '/TessaMellem',
+    name: 'Tessa',
+    component: () => import('../views/TessaMellem.vue')
+  },
+  {
+    path: '/TessaUd',
+    name: 'Tessa',
+    component: () => import('../views/TessaUd.vue')
   }
 ]
 

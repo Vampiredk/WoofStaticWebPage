@@ -110,7 +110,7 @@
       <img id="logoblacop" alt="Woof Logo" src="../assets/Images/WoofLogo.png">
       <br>
       <img id="boneloading" src="../assets/Images/LoadingBone.png">
-      <p id="bonetxt" v-if="bonetxt1" >...matcher med klassehund...</p>
+      <p id="bonetxt" v-if="bonetxt1" >. . . matcher med klassehunh . . .</p>
       <p id="bonetxt2" v-if="bonetxt2" >Jeres hund er fundet</p>
     </div>
   </body>
@@ -245,7 +245,7 @@ export default {
         }, 7500)
       } else if (this.playingV > 4) {
         console.log('playingV er over 4')
-        if (this.$Afdeling === 'Mellemtrin' || this.$Afdeling === 'Udskoling') {
+        if (this.klassenssvar === 'Mellemtrin' || this.klassenssvar === 'Udskoling') {
           console.log('årgng er mellemtrin eller udskoling')
           if (this.playingV === 5) {
             const video5 = document.getElementById('CCV')
@@ -291,8 +291,8 @@ export default {
       } else if (this.buttonAnswer.length === 4) {
         this.ChangeToUnderwater()
       } else if (this.buttonAnswer.length >= 5) {
-        console.log(this.$Afdeling)
-        if (this.$Afdeling === 'Indskoling') {
+        console.log(this.klassenssvar)
+        if (this.klassenssvar === 'Indskoling') {
           this.finddogbool = true
           this.questiontxt = false
           this.showcloud = false
@@ -307,13 +307,37 @@ export default {
           setTimeout(() => {
             this.pauseclicksound('revealwaitingaudio')
             if (this.charlesbtn === true) {
-              this.$router.push({ path: '/charles' })
+              if (this.klassenssvar === 'Indskoling') {
+                this.$router.push({ path: '/charles' })
+              } else if (this.klassenssvar === 'Mellemtrin') {
+                this.$router.push({ path: '/charlesMellem' })
+              } else if (this.klassenssvar === 'Udskoling') {
+                this.$router.push({ path: '/charlesUd' })
+              }
             } else if (this.fridabtn === true) {
-              this.$router.push({ path: '/frida' })
+              if (this.klassenssvar === 'Indskoling') {
+                this.$router.push({ path: '/frida' })
+              } else if (this.klassenssvar === 'Mellemtrin') {
+                this.$router.push({ path: '/fridaMellem' })
+              } else if (this.klassenssvar === 'Udskoling') {
+                this.$router.push({ path: '/fridaUd' })
+              }
             } else if (this.banditbtn === true) {
-              this.$router.push({ path: '/bandit' })
+              if (this.klassenssvar === 'Indskoling') {
+                this.$router.push({ path: '/bandit' })
+              } else if (this.klassenssvar === 'Mellemtrin') {
+                this.$router.push({ path: '/banditMellem' })
+              } else if (this.klassenssvar === 'Udskoling') {
+                this.$router.push({ path: '/banditUd' })
+              }
             } else if (this.tessabtn === true) {
-              this.$router.push({ path: '/tessa' })
+              if (this.klassenssvar === 'Indskoling') {
+                this.$router.push({ path: '/Tessa' })
+              } else if (this.klassenssvar === 'Mellemtrin') {
+                this.$router.push({ path: '/TessaMellem' })
+              } else if (this.klassenssvar === 'Udskoling') {
+                this.$router.push({ path: '/TessaUd' })
+              }
             }
           }, 8000)
         } else {
@@ -337,13 +361,37 @@ export default {
               setTimeout(() => {
                 this.pauseclicksound('revealwaitingaudio')
                 if (this.charlesbtn === true) {
-                  this.$router.push({ path: '/charles' })
+                  if (this.klassenssvar === 'Indskoling') {
+                    this.$router.push({ path: '/charles' })
+                  } else if (this.klassenssvar === 'Mellemtrin') {
+                    this.$router.push({ path: '/charlesMellem' })
+                  } else if (this.klassenssvar === 'Udskoling') {
+                    this.$router.push({ path: '/charlesUd' })
+                  }
                 } else if (this.fridabtn === true) {
-                  this.$router.push({ path: '/frida' })
+                  if (this.klassenssvar === 'Indskoling') {
+                    this.$router.push({ path: '/frida' })
+                  } else if (this.klassenssvar === 'Mellemtrin') {
+                    this.$router.push({ path: '/fridaMellem' })
+                  } else if (this.klassenssvar === 'Udskoling') {
+                    this.$router.push({ path: '/fridaUd' })
+                  }
                 } else if (this.banditbtn === true) {
-                  this.$router.push({ path: '/bandit' })
+                  if (this.klassenssvar === 'Indskoling') {
+                    this.$router.push({ path: '/bandit' })
+                  } else if (this.klassenssvar === 'Mellemtrin') {
+                    this.$router.push({ path: '/banditMellem' })
+                  } else if (this.klassenssvar === 'Udskoling') {
+                    this.$router.push({ path: '/banditUd' })
+                  }
                 } else if (this.tessabtn === true) {
-                  this.$router.push({ path: '/tessa' })
+                  if (this.klassenssvar === 'Indskoling') {
+                    this.$router.push({ path: '/Tessa' })
+                  } else if (this.klassenssvar === 'Mellemtrin') {
+                    this.$router.push({ path: '/TessaMellem' })
+                  } else if (this.klassenssvar === 'Udskoling') {
+                    this.$router.push({ path: '/TessaUd' })
+                  }
                 }
               }, 1000)
             }, 8000)
@@ -608,7 +656,6 @@ export default {
       this.btn1 = 'Alenearbejde'
       this.btn2 = 'Gruppearbejde'
       this.txt1 = 'Eller måske en byhund?'
-      this.txt2 = 'Vælg en af knapperne for at komme videre'
       console.log('Play city')
       if (this.mutesounds === 1) {
         this.CityM = false
@@ -703,14 +750,7 @@ export default {
       this.UnderwaterM = false
     },
     addklassetrin (value) {
-      if (value === 'Indskoling') {
-        this.addAfdeling('Indskoling')
-      } else if (value === 'Mellemtrin') {
-        this.addAfdeling('Mellemtrin')
-      } else if (value === 'Udskoling') {
-        this.addAfdeling('Udskoling')
-      }
-      console.log(this.$Afdeling)
+      this.addAfdeling(value)
       this.verdener = false
       document.getElementById('startfindhund').style.opacity = '1'
       document.getElementById('FV').style.opacity = '1'

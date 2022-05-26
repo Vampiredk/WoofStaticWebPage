@@ -8,18 +8,26 @@
   :playclicksound="playclicksound"
   :Afdeling="Afdeling"
   :pauseclicksound="pauseclicksound"
-  :addklassetrin="addAfdeling"
+  :addAfdeling="addAfdeling"
+  :klassenssvar="klassenssvar"
+  />
+
+  <Sidebaars
   :klassenssvar="klassenssvar"
   />
 </template>
 
 <script>
+import Sidebaars from './components/Side-baars.vue'
 
 export default {
+  components: {
+    Sidebaars
+  },
 
   data: function () {
     return {
-      klassenssvar: '',
+      klassenssvar: '5',
       Emails: [],
       showButton: true,
       mutesounds: 0,
@@ -47,8 +55,8 @@ export default {
       audio.pause()
     },
     addAfdeling (value) {
-      this.Afdeling = value
-      return this
+      this.klassenssvar = value
+      console.log(this.klassenssvar)
     }
   }
 }

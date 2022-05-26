@@ -12,16 +12,18 @@
     </audio>
     <div id="dogcloud">
       <p Id="dogTitleText">
-        Hej! minder I om mig?<br>
+        Hej! minder I om mig? <br>
         Og, er I med på en Challenge??
       </p>
       <img id="CloudSize" alt="Cloud" src="../assets/Images/Cloud.png">
-      <p id="dogcloudText">Hej optursklasse! I er awesome, og jeg er Frida. <br>
-      Jeg elsker at hygge og virkelig fordybe mig i ting.<br>
-      Det virker til, at I har det lidt på samme måde her i klassen.</p>
+      <p id="dogcloudText">Hej med Jer :-) I er optur og jeg er Tessa!<br>
+        Da jeg var hvalp, havde jeg altid super meget krudt i røven <br>
+        og det var federe for mig at være på jagt for mig selv<br>
+        end at lege med de andre hunde. Det virker til,<br>
+        at I har noget af den samme energi her i klassen. </p>
     </div>
     <div id="dogPos">
-      <img src="../assets/Images/FridaHund.png">
+      <img src="../assets/Images/TessaHund.png">
     </div>
     <div id="centercontainer" class="special">
       <div id="rectangle">
@@ -38,7 +40,7 @@
           </label>
             <input type="email" placeholder="mail@eksempel.dk" value="" name="EMAIL" class="required email" id="mce-EMAIL">
           </div>
-          <div hidden="true"><input type="hidden" name="tags" value="12613030"></div>
+          <div hidden="true"><input type="hidden" name="tags" value="12613054"></div>
             <div id="mce-responses" class="clear">
               <div class="response" id="mce-error-response" style="display:none"></div>
               <div class="response" id="mce-success-response" style="display:none"></div>
@@ -60,7 +62,7 @@
           </label>
             <input type="email" placeholder="mail@eksempel.dk" value="" name="EMAIL" class="required email" id="mce-EMAIL">
           </div>
-          <div hidden="true"><input type="hidden" name="tags" value="12613034"></div>
+          <div hidden="true"><input type="hidden" name="tags" value="12613058"></div>
             <div id="mce-responses" class="clear">
               <div class="response" id="mce-error-response" style="display:none"></div>
               <div class="response" id="mce-success-response" style="display:none"></div>
@@ -82,7 +84,7 @@
           </label>
             <input type="email" placeholder="mail@eksempel.dk" value="" name="EMAIL" class="required email" id="mce-EMAIL">
           </div>
-          <div hidden="true"><input type="hidden" name="tags" value="12613038"></div>
+          <div hidden="true"><input type="hidden" name="tags" value="12613062"></div>
             <div id="mce-responses" class="clear">
               <div class="response" id="mce-error-response" style="display:none"></div>
               <div class="response" id="mce-success-response" style="display:none"></div>
@@ -105,16 +107,15 @@ import axios from 'axios'
 const url = 'https://woofrestservice20220324090401.azurewebsites.net/api/woof'
 
 export default {
-  name: 'MyFrida',
+  name: 'MyTessa',
   props: ['buttonAnswer', 'playclicksound', 'pauseclicksound', 'Afdeling', 'klassenssvar'],
   data () {
     return {
-      name: 'test',
-      email: 'test2',
-      message: 'lækkert',
+      name: '',
+      email: '',
+      message: '',
       posts: [],
-      saveemails: this.message,
-      addData: { id: 0, emails: this.saveemails, skole: this.name, klasse: this.message, Afdeling: this.Afdeling, Hund: 'Bandit', klassensSvar: this.klassensSvar }
+      addData: { id: 0, emails: this.email, skole: this.name, klasse: this.message, Afdeling: this.$Afdeling, Hund: 'Bandit', klassensSvar: this.$klassensSvar }
     }
   },
   methods: {
@@ -138,39 +139,26 @@ export default {
       this.name = ''
       this.email = ''
       this.message = ''
-    },
-    async getData () {
-      try {
-        const response = await axios.get(url)
-        // JSON responses are automatically parsed.
-        this.posts = await response.data
-        console.log(this.posts)
-      } catch (error) {
-        console.log(error)
-      }
-    },
-    async addWoof () {
-      this.saveemails = 'super'
-      try {
-        const response = await axios.post(url, this.addData)
-        this.addMessage = 'response ' + response.status + ' ' + response.statusText
-        this.getData()
-      } catch (ex) {
-        alert(ex.message)
-      }
     }
   },
   created: function () {
-    console.log(this.klassensSvar)
     if (this.mutesounds === 0) {
       setTimeout(() => {
         this.playclicksound('revealaudio')
         setTimeout(() => {
           this.pauseclicksound('revealaudio')
           this.playclicksound('revealwaitingaudio')
-          console.log(this.Afdeling)
         }, 2500)
       })
+    }
+  },
+  async addWoof () {
+    try {
+      const response = await axios.post(url, this.addData)
+      this.addMessage = 'response ' + response.status + ' ' + response.statusText
+      this.getData()
+    } catch (ex) {
+      alert(ex.message)
     }
   }
 }
