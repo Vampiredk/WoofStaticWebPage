@@ -40,7 +40,7 @@ const routes = [
   },
   {
     path: '/CharlesMellem',
-    name: 'CharleMellems',
+    name: 'CharlesMellem',
     component: () => import('../views/CharlesMellem.vue')
   },
   {
