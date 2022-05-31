@@ -20,12 +20,12 @@ const routes = [
   },
   {
     path: '/BanditUd',
-    name: 'Bandit',
+    name: 'BanditUd',
     component: () => import('../views/BanditUd.vue')
   },
   {
     path: '/BanditMellem',
-    name: 'Bandit',
+    name: 'BanditMellem',
     component: () => import('../views/BanditMellem.vue')
   },
   {
@@ -35,12 +35,12 @@ const routes = [
   },
   {
     path: '/CharlesUd',
-    name: 'Charles',
+    name: 'CharlesUd',
     component: () => import('../views/CharlesUd.vue')
   },
   {
     path: '/CharlesMellem',
-    name: 'Charles',
+    name: 'CharleMellems',
     component: () => import('../views/CharlesMellem.vue')
   },
   {
@@ -50,12 +50,12 @@ const routes = [
   },
   {
     path: '/FridaMellem',
-    name: 'Frida',
+    name: 'FridaMellem',
     component: () => import('../views/FridaMellem.vue')
   },
   {
     path: '/FridaUd',
-    name: 'Frida',
+    name: 'FridaUd',
     component: () => import('../views/FridaUd.vue')
   },
   {
@@ -65,12 +65,12 @@ const routes = [
   },
   {
     path: '/TessaMellem',
-    name: 'Tessa',
+    name: 'TessaMellem',
     component: () => import('../views/TessaMellem.vue')
   },
   {
     path: '/TessaUd',
-    name: 'Tessa',
+    name: 'TessaUd',
     component: () => import('../views/TessaUd.vue')
   }
 ]
