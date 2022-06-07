@@ -65,6 +65,11 @@ body {
     background-blend-mode: normal;
 }
 
+#rightalign {
+    z-index: 1;
+    position: relative;
+}
+
 #centercontainer{
     position: absolute;
     left: 0px;
@@ -79,6 +84,7 @@ body {
     width: 100%;
     text-align: center;
     font-size: 18px;
+
 }
 
 .mutebutton {
@@ -89,19 +95,23 @@ body {
 
 div#mc_embed_signup {
     position: fixed;
-    padding: 28px 40px;
-    background: #ffffff;
+    padding: 30px;
+    background: #fff;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     border-radius: 30px;
-}
-
-.div#mc_embed_signup h2 {
-    display: none;
+    max-width: 300px;
+    opacity: 0;
+    transform: scale(.95);
+    animation: showAnimation 0s ease-in 15s;
+    animation-fill-mode: forwards;
 }
 
 div#mc_embed_signup h2 {
-    display: none;
+    font-family: Nunito;
+    font-weight: 900;
+    margin: 0 0 20px;
+    font-size: 20px;
 }
 
 .mc-field-group {
@@ -135,6 +145,72 @@ input#mce-EMAIL {
     box-shadow: none;
 }
 
+div#mc_embed_signup_scroll p {
+    font-size: 14px;
+    text-align: left;
+    line-height: 1.3;
+    font-family: Nunito;
+}
+
+.content__gdprLegal {
+    display: none;
+}
+
+fieldset.mc_fieldset.gdprRequired.mc-field-group {
+    padding: 0;
+    border: none;
+    margin: 0;
+    text-align: left;
+    padding-left: 34px;
+    position: relative;
+}
+
+fieldset.mc_fieldset.gdprRequired.mc-field-group label {
+    font-size: 18px!important;
+    display: flex;
+}
+
+fieldset.mc_fieldset.gdprRequired.mc-field-group input {
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.content__gdpr > label {
+    display: none;
+}
+
+.mc-field-group > label:first-of-type {
+    display: none;
+}
+
+
 div#centercontainer.special {
     height: 0;
 }
+
+input#mce-EMAIL {
+    margin: 0 0 15px;
+    width: 100%;
+    border: solid 2px #333;
+    height: 58px;
+}
+
+div#mc_embed_signup * {
+    box-sizing: border-box;
+}
+  
+  @keyframes showAnimation {
+    to {
+      visibility: visible;
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+
+  .center a.button {
+    margin: 18px 5px 0;
+    display: inline-flex;
+    text-decoration: none;
+    color: black;
+  }

@@ -23,32 +23,47 @@
         at I har noget af den samme energi her i klassen. </p>
     </div>
     <div id="dogPos">
-      <img src="../assets/Images/TessaHund.png">
+      <img src="../assets/Images/tessa.png">
     </div>
     <div id="centercontainer" class="special">
       <div id="rectangle">
       </div>
       <div class="center">
-          <div id="mc_embed_signup">
-          <form action="https://wooftech.us10.list-manage.com/subscribe/post?u=58418e04e0390722eae306770&amp;id=2216d5e044" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-              <div id="mc_embed_signup_scroll">
-            <h2>Subscribe</h2>
-          <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-          <div class="mc-field-group">
-            <label for="mce-EMAIL">Indtast din email adresse
-          </label>
-            <input type="email" placeholder="mail@eksempel.dk" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-          </div>
-          <div hidden="true"><input type="hidden" name="tags" value="12613062"></div>
-            <div id="mce-responses" class="clear">
-              <div class="response" id="mce-error-response" style="display:none"></div>
-              <div class="response" id="mce-success-response" style="display:none"></div>
-            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_58418e04e0390722eae306770_2216d5e044" tabindex="-1" value=""></div>
-              <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-              </div>
-          </form>
-          </div>
+        <!-- Begin Mailchimp Signup Form -->
+        <div id="mc_embed_signup">
+        <form action="https://wooftech.us10.list-manage.com/subscribe/post?u=58418e04e0390722eae306770&amp;id=2216d5e044" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+          <h2>Få tilsendt klassens challenge </h2>
+        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+        <div class="mc-field-group">
+          <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+        </label>
+          <input type="email" value="" placeholder="Indtast e-mail" name="EMAIL" class="required email" id="mce-EMAIL">
+        </div>
+        <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
+            <div class="content__gdpr">
+                <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
+                  <label class="checkbox subfield" for="gdpr_59506"><input type="checkbox" id="gdpr_59506" name="gdpr[59506]" value="Y" class="av-checkbox "><span>Ja, tak jeg vil gerne modtage en challenge og tilmelde mig WOOFs nyhedsbrev</span> </label>
+                </fieldset>
+                  <p>Når du siger ja til at modtage klassens challenge tilmelder du dig samtidig WOOFs nyhedsbrev med nyheder, tilbud, information om nye produkter og services mv.
+                  <br><br>
+                  Du kan i vores <a href="https://wooftech.dk/privatlivspolitik/" target="_blank">persondatapolitik</a> læse mere om hvordan vi behandler dine personoplysninger, samt hvilke rettigheder, du har. Du kan til enhver tid afmelde dig vores nyhedsbrev via et link i e-mailen. Du kan til enhver tid afmelde dig vores nyhedsbrev via et link i e-mailen</p>
+            </div>
+            <div class="content__gdprLegal">
+                <p>We use Mailchimp as our marketing platform. By clicking below to subscribe, you acknowledge that your information will be transferred to Mailchimp for processing. <a href="https://mailchimp.com/legal/terms" target="_blank">Learn more about Mailchimp's privacy practices here.</a></p>
+            </div>
+        </div>
+        <div hidden="true"><input type="hidden" name="tags" value="12613062"></div>
+          <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_58418e04e0390722eae306770_2216d5e044" tabindex="-1" value=""></div>
+            <div class="clear"><input type="submit" value="Send challenge" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            </div>
+        </form>
+        </div>
+        <!--End mc_embed_signup-->
       </div>
     </div>
   </body>

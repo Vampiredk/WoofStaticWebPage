@@ -1,6 +1,6 @@
 <template>
   <head>
-     <title> Vue 3 Basics</title>
+     <title>WOOF - Find klassens hund</title>
      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -38,7 +38,7 @@
       <div id="rectangle">
       </div>
       <div class="center">
-        <button class="button" >Til læreren</button> <button class="button" >Kontakt</button> <button class="button" >Sign up til WOOFS platform</button>
+        <a href="https://wooftech.dk/laerer/" target="_blank" class="button" >Til læreren</a> <a href="https://wooftech.dk/omwoof/" target="_blank" class="button" >Kontakt</a> <a href="https://wooftech.dk/sign-up-platform/" target="_blank" class="button" >Sign up til WOOFS platform</a>
       </div>
     </div>
   </body>

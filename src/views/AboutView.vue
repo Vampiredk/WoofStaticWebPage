@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title> Vue 3 Basics</title>
+    <title>WOOF - Find klassens hund</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
   </head>
   <body>
