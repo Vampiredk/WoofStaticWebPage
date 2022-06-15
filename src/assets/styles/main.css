@@ -102,9 +102,10 @@ div#mc_embed_signup {
     border-radius: 30px;
     max-width: 300px;
     opacity: 0;
-    transform: scale(.95);
-    animation: showAnimation 0s ease-in 15s;
+    animation: fadeInPopup 1s;
+    animation-delay: 10s;
     animation-fill-mode: forwards;
+    box-shadow: 0px 20px 41px rgb(0 0 0 / 12%);
 }
 
 div#mc_embed_signup h2 {
@@ -206,6 +207,11 @@ div#mc_embed_signup * {
       pointer-events: all;
       opacity: 1;
     }
+  }
+
+  @keyframes fadeInPopup {
+    0% { opacity: 0; bottom: 0px; }
+    100% { opacity: 1; bottom: 20px; }
   }
 
   .center a.button {

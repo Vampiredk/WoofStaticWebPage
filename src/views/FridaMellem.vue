@@ -41,7 +41,7 @@
         <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
             <div class="content__gdpr">
                 <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
-                  <label class="checkbox subfield" for="gdpr_59506"><input type="checkbox" id="gdpr_59506" name="gdpr[59506]" value="Y" class="av-checkbox "><span>Ja, tak jeg vil gerne modtage en challenge og tilmelde mig WOOFs nyhedsbrev</span> </label>
+                  <label class="checkbox subfield" for="gdpr_59506"><input required type="checkbox" id="gdpr_59506" name="gdpr[59506]" value="Y" class="av-checkbox "><span>Ja, tak jeg vil gerne modtage en challenge og tilmelde mig WOOFs nyhedsbrev</span> </label>
                 </fieldset>
                   <p>Når du siger ja til at modtage klassens challenge tilmelder du dig samtidig WOOFs nyhedsbrev med nyheder, tilbud, information om nye produkter og services mv.
                   <br><br>

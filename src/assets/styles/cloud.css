@@ -142,4 +142,9 @@
         opacity: 1;
     }
 }
-  
+
+img#CloudSize {
+    position: relative;
+    left: -13px;
+    top: 2px;
+}
